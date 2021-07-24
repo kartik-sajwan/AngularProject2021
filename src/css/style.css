@@ -1,0 +1,904 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+/*mixing used for creating a card */
+/* This mixin provides course-card structure*/
+* {
+  margin: 0;
+  padding: 0; }
+
+html {
+  font-size: 10px;
+  /* This specifies the root size for browsers mentioned in pixels, used to make rem calculations*/
+  width: 100%; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  width: 100%; }
+
+.backdrop {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #000000;
+  opacity: 50%;
+  z-index: 50;
+  cursor: pointer; }
+
+/* Code for fixed navbar styling */
+.navbar {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  height: 6rem;
+  background: #F5F5F5 0% 0% no-repeat padding-box;
+  box-shadow: 0rem 0.3rem 0.6rem #00000029; }
+  .navbar .mobile-back-btn {
+    display: none; }
+  .navbar .hamburger {
+    display: none; }
+  .navbar .mobile-nav {
+    display: none; }
+  .navbar .logo {
+    align-self: center;
+    margin: 0% 7%;
+    padding: 1rem; }
+  .navbar .logo-all-courses {
+    margin: 0% 2%;
+    padding: 1rem; }
+    .navbar .logo-all-courses #toggle-btn {
+      display: none; }
+  .navbar .navigation {
+    display: flex;
+    margin-right: 1%;
+    justify-content: space-evenly;
+    align-items: center; }
+    .navbar .navigation .nav-link {
+      text-align: left;
+      font: normal normal normal 1.6rem/1.9rem Montserrat;
+      color: #080808;
+      width: 11.25rem; }
+      .navbar .navigation .nav-link:nth-child(2) {
+        padding-right: 4rem; }
+      .navbar .navigation .nav-link a:visited, .navbar .navigation .nav-link a:link {
+        font-weight: bold;
+        text-decoration: none;
+        color: #080808; }
+    .navbar .navigation .nav-icon {
+      padding-left: 3rem;
+      padding: 0 1.5rem; }
+
+.mobilenav {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  width: 45%;
+  height: 100vh;
+  font-size: 2rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 1.5rem 0 1.5rem 3.5rem;
+  animation: slide-in 0.5s ease-in;
+  opacity: 100%; }
+
+.mobilenav-open {
+  display: flex; }
+
+.mobilenav img {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 2rem; }
+
+.mobilenav-close {
+  display: flex;
+  align-items: center; }
+
+.mobilenav-close span {
+  font-size: 1.8rem;
+  opacity: 50%; }
+
+.mobilenav-list {
+  margin-top: 4rem; }
+
+.mobilenav-item {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem; }
+
+.mobilenav-item a:link,
+.mobilenav-item a:visited {
+  text-decoration: none;
+  text-transform: none;
+  color: #000000;
+  font-size: 1.5rem;
+  font-weight: 600; }
+
+.navbar .navigation {
+  display: flex;
+  margin-right: 1%;
+  justify-content: space-evenly;
+  align-items: center; }
+
+/* setting margin for main block containing all the sections */
+main {
+  margin: 0% 7%;
+  padding-top: 8rem; }
+
+/* This styles react background image and page title */
+.container {
+  background-image: url("../assets/Mask Group 1.png");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: initial;
+  background-position-y: unset;
+  background-color: #000000;
+  display: flex;
+  border: 0;
+  border-radius: 0.5rem;
+  height: 11.1rem; }
+  .container .page_title {
+    text-align: left;
+    font: normal normal 600 2rem/2.4rem Montserrat;
+    color: #FFFFFF;
+    max-width: 28rem;
+    margin: 1.5% 0% 2.5% 2%; }
+
+h2 {
+  font-size: 2.0rem;
+  padding-left: 1.5rem;
+  color: #0F1317; }
+
+/*Course navigation inlcudes All Course Heading, Sort Button and search bar */
+.course-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem 0rem 0rem 0rem;
+  align-items: center; }
+  .course-nav .search-and-sort {
+    display: flex;
+    justify-content: space-between; }
+    .course-nav .search-and-sort img {
+      padding-right: 2rem; }
+    .course-nav .search-and-sort .search {
+      display: flex;
+      align-items: center; }
+      .course-nav .search-and-sort .search .search-bar {
+        background: #EFF2FF 0% 0% no-repeat padding-box;
+        max-width: 37.8rem;
+        width: 39.8rem;
+        height: 4.0rem;
+        border: none;
+        padding-left: 1rem; }
+        .course-nav .search-and-sort .search .search-bar:focus {
+          outline: none !important; }
+      .course-nav .search-and-sort .search button {
+        background: #FF6738 0% 0% no-repeat padding-box;
+        border: none;
+        width: 5.2rem;
+        height: 4rem; }
+
+/*styles for course-list card on all course page*/
+.course-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  /*Styles for side-cart on all course page	!!!Incomplete!!!	*/ }
+  .course-wrapper .course-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%; }
+    .course-wrapper .course-list .card {
+      display: flex;
+      flex-direction: row;
+      width: 115.5rem;
+      height: 8rem;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1%;
+      margin: 2% 0%;
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      box-shadow: 0rem .3rem .6rem #00000029;
+      border: .1rem solid #F4F4F4;
+      border-radius: rem rem .4rem .4rem; }
+      .course-wrapper .course-list .card .about {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 58rem; }
+        .course-wrapper .course-list .card .about .prod-img {
+          width: 7.9rem;
+          height: 7.0rem;
+          background-image: url("../assets/course.jpg");
+          background-repeat: no-repeat; }
+        .course-wrapper .course-list .card .about .description {
+          text-align: left;
+          letter-spacing: 0rem;
+          color: #080808;
+          display: flex;
+          flex-direction: column;
+          max-width: 33.5rem;
+          padding: 0%;
+          font: normal normal 600 1.8rem/2.2rem Montserrat; }
+          .course-wrapper .course-list .card .about .description .p {
+            padding: 0%; }
+          .course-wrapper .course-list .card .about .description .reactions {
+            display: inline-flex;
+            flex-direction: row;
+            justify-content: flex-start; }
+            .course-wrapper .course-list .card .about .description .reactions .pill {
+              text-align: center;
+              font: normal normal 1.2rem/1.5rem Montserrat;
+              letter-spacing: 0rem;
+              color: #FFFFFF;
+              background: #E25B32 0% 0% no-repeat padding-box;
+              background-size: initial;
+              border-radius: 0.4rem;
+              margin: 4% 3% 2% 0%;
+              padding: 0.8% 5.4%; }
+        .course-wrapper .course-list .card .about .author {
+          text-align: left;
+          font: normal normal 300 1.6rem/1.9rem Montserrat;
+          letter-spacing: 0rem;
+          min-width: 11.7rem;
+          color: #080808;
+          padding-top: 1rem; }
+          .course-wrapper .course-list .card .about .author p {
+            display: none; }
+        .course-wrapper .course-list .card .about .reactions-mobile {
+          display: none; }
+      .course-wrapper .course-list .card .action {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 44rem;
+        padding: 0rem 3rem; }
+        .course-wrapper .course-list .card .action .star {
+          max-width: 2.6rem; }
+        .course-wrapper .course-list .card .action .mobile-price {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          flex-direction: row;
+          width: 100%; }
+          .course-wrapper .course-list .card .action .mobile-price .price {
+            text-align: center;
+            font: normal normal bold 2.0rem/2.4rem Montserrat;
+            color: #080808; }
+          .course-wrapper .course-list .card .action .mobile-price .discount {
+            text-align: center;
+            text-decoration: line-through;
+            font: normal normal 600 1.6rem/1.9rem Montserrat;
+            letter-spacing: 0rem;
+            color: #080808;
+            min-width: 6.2rem; }
+        .course-wrapper .course-list .card .action .cart-btn {
+          font: normal normal 600 1.6rem/1.9rem Montserrat;
+          color: #FFFFFF;
+          width: 14.5rem;
+          background: #FF6738 0% 0% no-repeat padding-box;
+          padding: 7%;
+          border: none;
+          border-radius: 0.4rem; }
+        .course-wrapper .course-list .card .action .exp {
+          padding-left: 2rem;
+          width: .6rem;
+          height: 1.2rem; }
+  .course-wrapper .cart {
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0rem 0.3rem 0.6rem #00000029;
+    width: 36.2%;
+    height: 100%;
+    margin: 1.45% 0%;
+    border: 0.1rem solid #F4F4F4;
+    border-radius: 0rem 0rem 0.4rem 0.4rem; }
+    .course-wrapper .cart hr {
+      align-self: center;
+      border: 0.1rem solid #E0E0E0;
+      width: 95%; }
+    .course-wrapper .cart .your-cart-details {
+      display: flex;
+      flex-direction: column; }
+      .course-wrapper .cart .your-cart-details p {
+        padding: 5% 0% 5% 0%;
+        text-align: center;
+        font: normal normal 600 1.8rem/2.2rem Montserrat;
+        color: #080808; }
+    .course-wrapper .cart .cart-main {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-content: space-between;
+      margin: 5% 0%; }
+      .course-wrapper .cart .cart-main .cart-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        margin: 0% 4%; }
+        .course-wrapper .cart .cart-main .cart-list .cart-item {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between; }
+          .course-wrapper .cart .cart-main .cart-list .cart-item .item-img {
+            width: 20rem;
+            height: 7.0rem;
+            background: #F2F2F2 0% 0% no-repeat padding-box; }
+          .course-wrapper .cart .cart-main .cart-list .cart-item .item-description p {
+            text-align: left;
+            padding-left: 2rem;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #080808; }
+        .course-wrapper .cart .cart-main .cart-list .item-price {
+          align-self: flex-end;
+          font: normal normal bold 2.0rem/2.4rem Montserrat;
+          color: #080808;
+          padding: 5% 0%; }
+      .course-wrapper .cart .cart-main .summary {
+        display: flex;
+        flex-direction: column;
+        margin: 100% 0% -3% 0%; }
+        .course-wrapper .cart .cart-main .summary .checkout {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center; }
+          .course-wrapper .cart .cart-main .summary .checkout .cart-value {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: center;
+            padding: 0% 0% 0% 5%;
+            font: normal normal bold 1.6rem/1.9rem Montserrat;
+            color: #080808; }
+            .course-wrapper .cart .cart-main .summary .checkout .cart-value p {
+              margin: 8% 0% 0% 0%;
+              font: normal normal bold 2.8rem/2.4rem Montserrat;
+              color: #080808; }
+          .course-wrapper .cart .cart-main .summary .checkout .go-cart-btn {
+            display: flex;
+            color: #FF6738;
+            font: normal normal 600 1.6rem/1.9rem Montserrat;
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            padding: 7%;
+            border: none;
+            border-radius: 0.4rem; }
+
+/*	---Styling for All Courses Page Ends---	*/
+h3 {
+  padding: 4rem 0rem 0rem 1rem;
+  font-size: 2rem;
+  padding: 4rem 0rem 3rem 1.5rem;
+  color: #0F1317; }
+
+h4 {
+  padding-top: 2rem;
+  font-size: 2.0rem;
+  padding-left: rem;
+  color: #0F1317;
+  font: normal normal 600 1.8rem/2.2rem Montserrat;
+  color: #4E4E4E; }
+
+/*	---Styling for Cart Page begins---	*/
+.show-cart {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; }
+  .show-cart .cart-wrapper {
+    margin-top: -0.8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%; }
+    .show-cart .cart-wrapper .in-cart-list {
+      display: flex;
+      flex-direction: column;
+      width: 100%; }
+      .show-cart .cart-wrapper .in-cart-list .item-card {
+        display: flex;
+        flex-direction: row;
+        width: 115.5rem;
+        height: 8rem;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1%;
+        margin: 2% 0%;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0rem .3rem .6rem #00000029;
+        border: .1rem solid #F4F4F4;
+        border-radius: rem rem .4rem .4rem;
+        margin: 1% 0%; }
+        .show-cart .cart-wrapper .in-cart-list .item-card .about {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          width: 45rem; }
+          .show-cart .cart-wrapper .in-cart-list .item-card .about .prod-img {
+            width: 7.9rem;
+            height: 7.0rem;
+            background-image: url("../assets/course.jpg");
+            background-repeat: no-repeat; }
+          .show-cart .cart-wrapper .in-cart-list .item-card .about .description {
+            text-align: left;
+            color: #080808;
+            display: flex;
+            flex-direction: column;
+            max-width: 33.5rem;
+            padding: 0%;
+            font: normal normal 600 1.8rem/2.2rem Montserrat; }
+            .show-cart .cart-wrapper .in-cart-list .item-card .about .description .desc-text {
+              padding: 0%; }
+            .show-cart .cart-wrapper .in-cart-list .item-card .about .description .author {
+              text-align: left;
+              font: normal normal 300 1.6rem/1.9rem Montserrat;
+              min-width: 11.7rem;
+              color: #080808;
+              padding-top: 1rem; }
+              .show-cart .cart-wrapper .in-cart-list .item-card .about .description .author p {
+                display: none; }
+            .show-cart .cart-wrapper .in-cart-list .item-card .about .description .reactions-mobile {
+              display: none; }
+        .show-cart .cart-wrapper .in-cart-list .item-card .action {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          width: 42rem; }
+          .show-cart .cart-wrapper .in-cart-list .item-card .action .mobile-price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; }
+            .show-cart .cart-wrapper .in-cart-list .item-card .action .mobile-price .move-to-wishlist {
+              font: normal normal 600 1.6rem/1.9rem Montserrat;
+              color: #1873CE;
+              width: 17rem;
+              border: none; }
+            .show-cart .cart-wrapper .in-cart-list .item-card .action .mobile-price .price {
+              text-align: center;
+              font: normal normal bold 2.0rem/2.4rem Montserrat;
+              color: #080808;
+              padding-left: 5rem; }
+            .show-cart .cart-wrapper .in-cart-list .item-card .action .mobile-price .discount {
+              visibility: hidden; }
+          .show-cart .cart-wrapper .in-cart-list .item-card .action .mobile-trash .remove {
+            width: 2.8rem;
+            height: 3.1rem; }
+    .show-cart .cart-wrapper .recommendation {
+      display: flex;
+      flex-direction: column;
+      padding: 0 0rem;
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      border: 0.1rem solid #E0E0E0;
+      padding-left: 1.3rem;
+      width: 119.2rem; }
+      .show-cart .cart-wrapper .recommendation .rcard {
+        display: flex;
+        flex-direction: row;
+        width: 115.5rem;
+        height: 8rem;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1%;
+        margin: 2% 0%;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0rem .3rem .6rem #00000029;
+        border: .1rem solid #F4F4F4;
+        border-radius: rem rem .4rem .4rem; }
+        .show-cart .cart-wrapper .recommendation .rcard .prod-img {
+          width: 7.9rem;
+          height: 7.0rem;
+          background: #F2F2F2 0% 0% no-repeat padding-box; }
+        .show-cart .cart-wrapper .recommendation .rcard .description {
+          text-align: left;
+          letter-spacing: 0rem;
+          color: #080808;
+          display: flex;
+          flex-direction: column;
+          max-width: 33.5rem;
+          padding: 0%;
+          font: normal normal 600 1.8rem/2.2rem Montserrat; }
+          .show-cart .cart-wrapper .recommendation .rcard .description .desc-text {
+            padding: 0%; }
+          .show-cart .cart-wrapper .recommendation .rcard .description .reactions {
+            display: inline-flex;
+            flex-direction: row;
+            justify-content: flex-start; }
+            .show-cart .cart-wrapper .recommendation .rcard .description .reactions .pill {
+              text-align: center;
+              font: normal normal 1.2rem/1.5rem Montserrat;
+              letter-spacing: 0rem;
+              color: #FFFFFF;
+              background: #E25B32 0% 0% no-repeat padding-box;
+              background-size: initial;
+              border-radius: 0.4rem;
+              margin: 4% 3% 2% 0%;
+              padding: 0.8% 5.4%; }
+        .show-cart .cart-wrapper .recommendation .rcard .author {
+          text-align: left;
+          font: normal normal 300 1.6rem/1.9rem Montserrat;
+          letter-spacing: 0rem;
+          min-width: 11.7rem;
+          color: #080808;
+          padding-top: 1rem; }
+        .show-cart .cart-wrapper .recommendation .rcard .star {
+          max-width: 2.6rem; }
+        .show-cart .cart-wrapper .recommendation .rcard .price {
+          text-align: center;
+          font: normal normal bold 2.0rem/2.4rem Montserrat;
+          color: #080808; }
+        .show-cart .cart-wrapper .recommendation .rcard .discount {
+          text-align: center;
+          text-decoration: line-through;
+          font: normal normal 600 1.6rem/1.9rem Montserrat;
+          letter-spacing: 0rem;
+          color: #080808;
+          min-width: 6.2rem; }
+        .show-cart .cart-wrapper .recommendation .rcard .cart-btn {
+          font: normal normal 600 1.6rem/1.9rem Montserrat;
+          color: #FFFFFF;
+          width: 14.5rem;
+          background: #FF6738 0% 0% no-repeat padding-box;
+          padding: 7%;
+          border: none;
+          border-radius: 0.4rem; }
+        .show-cart .cart-wrapper .recommendation .rcard .about {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          width: 60rem;
+          align-items: center; }
+          .show-cart .cart-wrapper .recommendation .rcard .about .reactions-mobile {
+            display: none; }
+        .show-cart .cart-wrapper .recommendation .rcard .action {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          width: 38.5rem;
+          padding-right: 1rem; }
+  .show-cart .cart-total {
+    display: flex;
+    flex-direction: row;
+    width: 115.5rem;
+    height: 8rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+    margin: 2% 0%;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0rem .3rem .6rem #00000029;
+    border: .1rem solid #F4F4F4;
+    border-radius: rem rem .4rem .4rem;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 20.6rem;
+    margin-top: 1rem; }
+    .show-cart .cart-total .cart-details p {
+      text-align: left;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #080808; }
+    .show-cart .cart-total .cart-value {
+      text-align: left;
+      font: normal normal 600 3.0rem/3.7rem Montserrat;
+      color: #080808;
+      margin-bottom: 6.5rem; }
+    .show-cart .cart-total .checkout {
+      display: flex;
+      align-self: center; }
+      .show-cart .cart-total .checkout .checkout-btn {
+        font: normal normal 600 1.6rem/1.9rem Montserrat;
+        color: #FFFFFF;
+        width: 36rem;
+        height: 5rem;
+        background: #FF6738 0% 0% no-repeat padding-box;
+        border: none;
+        border-radius: 0.4rem; }
+  .show-cart .mobile-summary {
+    display: none; }
+
+/*	---Styling for Cart Page ends---	*/
+@media (max-width: 1400px) {
+  .show-cart {
+    flex-wrap: wrap; } }
+
+@media (max-width: 500px) {
+  .backdrop {
+    display: none; }
+  .navbar {
+    justify-content: flex-start;
+    align-items: center; }
+    .navbar .navigation {
+      display: none; }
+    .navbar .mobile-back-btn {
+      display: block;
+      padding: 0rem 0rem 0rem 1.8rem; }
+    .navbar .hamburger {
+      display: block;
+      padding: 0rem 0rem 0rem 1.5rem; }
+    .navbar .logo {
+      margin: 0% 1.2%; }
+    .navbar .mobile-nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-left: 18%; }
+      .navbar .mobile-nav .mobile-search {
+        padding-right: 0.5rem; }
+      .navbar .mobile-nav .mobile-cart {
+        padding-right: 0.6rem; }
+  main {
+    display: flex;
+    flex-direction: column; }
+    main .container {
+      height: 7.8rem;
+      background-image: url(../assets/BG.png);
+      align-items: center;
+      margin: 0% -4%; }
+      main .container .page_title {
+        font-size: 1.8rem; }
+      main .container h1 {
+        padding-left: 1.5rem; }
+    main h3 {
+      font-size: 1.7rem;
+      padding: 1.7rem 0rem; }
+  /*	***Styling for mobile All Courses***	*/
+  .course-nav {
+    justify-content: space-between;
+    padding: 2rem 0rem 1rem 0rem;
+    width: 104%;
+    margin: 0% 0% 0% -2.5%; }
+    .course-nav h2 {
+      font-size: 1.4rem;
+      padding-left: 0rem; }
+    .course-nav .search-and-sort img {
+      padding: 0rem;
+      width: 12.8rem;
+      height: 3.4rem; }
+    .course-nav .search-and-sort .search {
+      display: none; }
+  .course-wrapper {
+    display: inline-block;
+    width: 100%; }
+    .course-wrapper .cart {
+      display: none; }
+    .course-wrapper .course-list {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 37.5rem;
+      margin: -2% -9%;
+      padding: 0rem; }
+      .course-wrapper .course-list .card {
+        flex-direction: column;
+        width: 15rem;
+        height: 23.25rem;
+        margin: 2.5% 3%;
+        border-radius: .4rem; }
+        .course-wrapper .course-list .card .about {
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%; }
+          .course-wrapper .course-list .card .about .prod-img {
+            width: 105%;
+            margin: 0% -2.5%;
+            height: 8rem;
+            border-radius: .4rem .4rem 0rem 0rem; }
+          .course-wrapper .course-list .card .about .description {
+            display: flex;
+            width: 15.5rem; }
+            .course-wrapper .course-list .card .about .description p {
+              display: -webkit-box;
+              -webkit-line-clamp: 2;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              padding: 0.1rem;
+              font-size: 1.2rem; }
+            .course-wrapper .course-list .card .about .description .reactions {
+              display: none; }
+          .course-wrapper .course-list .card .about .author {
+            display: flex;
+            align-items: center;
+            padding: 0rem 0.5rem;
+            font-size: 1.2rem; }
+            .course-wrapper .course-list .card .about .author p {
+              display: inline-block; }
+          .course-wrapper .course-list .card .about .reactions-mobile {
+            display: flex; }
+            .course-wrapper .course-list .card .about .reactions-mobile .pill {
+              display: flex;
+              margin: .1rem .6rem .1rem .6rem;
+              background-color: #FCEEEA;
+              padding: 0.05rem 0.8rem;
+              border-radius: 0.4rem;
+              color: #E25B32;
+              font-size: 1.2rem; }
+        .course-wrapper .course-list .card .action {
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+          height: 8rem; }
+          .course-wrapper .course-list .card .action .star {
+            display: none; }
+          .course-wrapper .course-list .card .action .exp {
+            display: none; }
+          .course-wrapper .course-list .card .action .mobile-price {
+            display: flex;
+            justify-content: space-between;
+            width: 15.5rem;
+            margin: 3% 0%;
+            align-items: center; }
+            .course-wrapper .course-list .card .action .mobile-price .price {
+              font-size: 1.5rem;
+              padding-left: 2%;
+              font-weight: 600; }
+            .course-wrapper .course-list .card .action .mobile-price .discount {
+              visibility: visible;
+              padding-right: 17%;
+              text-decoration: line-through;
+              font-size: 1.25rem; }
+          .course-wrapper .course-list .card .action .add-to-cart {
+            margin: 6% 0% 0% -2.5%; }
+            .course-wrapper .course-list .card .action .add-to-cart .cart-btn {
+              width: 105%;
+              border-radius: 0rem 0rem .4rem .4rem;
+              background-color: #FF6738;
+              font-size: 1.5rem;
+              padding: 0.7rem 2.2rem; }
+  /*	***Styling for mobile cart page***	*/
+  .show-cart {
+    flex-direction: column;
+    margin: 1% -5%; }
+    .show-cart .cart-wrapper {
+      display: inline-block;
+      width: 100%; }
+      .show-cart .cart-wrapper .in-cart-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%; }
+        .show-cart .cart-wrapper .in-cart-list .item-card {
+          flex-direction: column;
+          width: 15.5rem;
+          height: 23.25rem;
+          margin: 0% 1.85%;
+          border-radius: .4rem;
+          padding-top: 0%; }
+          .show-cart .cart-wrapper .in-cart-list .item-card .about {
+            flex-direction: column;
+            align-items: center;
+            width: 100%; }
+            .show-cart .cart-wrapper .in-cart-list .item-card .about .prod-img {
+              width: 105%;
+              height: 8rem;
+              border-radius: 0.4rem 0.4rem 0rem 0rem; }
+            .show-cart .cart-wrapper .in-cart-list .item-card .about .description {
+              display: flex;
+              width: 15.5rem; }
+              .show-cart .cart-wrapper .in-cart-list .item-card .about .description p {
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                padding: 0.1rem;
+                font-size: 1.2rem; }
+              .show-cart .cart-wrapper .in-cart-list .item-card .about .description .author {
+                display: flex;
+                align-items: center;
+                padding: 0rem 0.5rem;
+                font-size: 1.2rem; }
+                .show-cart .cart-wrapper .in-cart-list .item-card .about .description .author p {
+                  display: inline-block; }
+              .show-cart .cart-wrapper .in-cart-list .item-card .about .description .reactions-mobile {
+                display: flex; }
+                .show-cart .cart-wrapper .in-cart-list .item-card .about .description .reactions-mobile .pill {
+                  display: flex;
+                  margin: .1rem .6rem .1rem .6rem;
+                  background-color: #FCEEEA;
+                  padding: 0.05rem 0.8rem;
+                  border-radius: 0.8rem;
+                  color: #E25B32;
+                  font-size: 1.2rem; }
+          .show-cart .cart-wrapper .in-cart-list .item-card .action {
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            height: 8rem; }
+            .show-cart .cart-wrapper .in-cart-list .item-card .action .move-to-wishlist {
+              display: none; }
+            .show-cart .cart-wrapper .in-cart-list .item-card .action .mobile-price {
+              display: flex;
+              justify-content: space-between;
+              width: 15.5rem;
+              margin: 3% 0%;
+              align-items: center; }
+              .show-cart .cart-wrapper .in-cart-list .item-card .action .mobile-price .price {
+                font-size: 1.6rem;
+                padding-left: 4%;
+                font-weight: 600; }
+              .show-cart .cart-wrapper .in-cart-list .item-card .action .mobile-price .discount {
+                visibility: visible;
+                padding-right: 17%;
+                text-decoration: line-through;
+                font-size: 1.25rem; }
+            .show-cart .cart-wrapper .in-cart-list .item-card .action .mobile-trash {
+              display: flex;
+              border: 0.15rem solid #E25B32;
+              width: 105%;
+              justify-content: center;
+              border-radius: 0rem 0rem .4rem .4rem;
+              margin: 6% 0% 0% -3.2%; }
+              .show-cart .cart-wrapper .in-cart-list .item-card .action .mobile-trash .remove {
+                width: 2rem;
+                height: 2rem; }
+                .show-cart .cart-wrapper .in-cart-list .item-card .action .mobile-trash .remove img {
+                  height: 2rem;
+                  width: 2rem; }
+      .show-cart .cart-wrapper .recommendation {
+        display: none; }
+    .show-cart .cart-total {
+      display: none; }
+    .show-cart .mobile-summary {
+      display: flex;
+      flex-direction: column;
+      padding: 4% 0%;
+      width: 100%;
+      font-size: 1.25rem;
+      font-weight: 600; }
+      .show-cart .mobile-summary hr {
+        margin: -1% 0% 1.5% 0%;
+        width: 98%;
+        align-self: center;
+        border: 0.1rem solid #0000001F; }
+      .show-cart .mobile-summary h5 {
+        color: #c1c1c1;
+        font-size: 1.25rem;
+        padding: .8rem 0rem; }
+      .show-cart .mobile-summary .mobile-price {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        padding: 0.8rem 0rem;
+        justify-content: space-between; }
+      .show-cart .mobile-summary .mobile-discount {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        padding: 0.7rem 0rem 1.1rem 0rem;
+        justify-content: space-between; }
+        .show-cart .mobile-summary .mobile-discount .mobile-discount-amt {
+          color: #28BF0D; }
+      .show-cart .mobile-summary .mobile-amount {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        padding: .5rem 0rem 3rem 0rem;
+        justify-content: space-between; }
+      .show-cart .mobile-summary .mobile-checkout-btn {
+        width: 37.5rem;
+        margin: 0% 0% 0% -2.9%;
+        background-color: #FF6738;
+        border: none;
+        padding: 4%;
+        color: #FFFFFF;
+        font-size: 1.8rem; } }
+
+/*	***Styling for mobile cart page***	*/

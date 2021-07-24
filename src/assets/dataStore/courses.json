@@ -1,0 +1,108 @@
+{
+	"courses" : [
+		{
+			"id": "3x0CTgf7UMzmfmbt5U5i",
+			"courseCreator": "Steve",
+			"courseDescription": "This is a starter course for shield handling",
+			"discount": 10,
+			"discountValidTill": "2021-07-30T04:30:00.000Z",
+			"price": 10000,
+			"tags": [
+				"world saving",
+				"avenger"
+			],
+			"title": "Shield training extreme, no mercy"
+		},
+		{
+			"id": "FqPHRq9GVkZyoBUm6RWe",
+			"courseCreator": "Loki",
+			"courseDescription": "He is adopted",
+			"discount": 15,
+			"discountValidTill": "2021-07-30T04:30:00.000Z",
+			"price": 9465,
+			"tags": [
+				"mischief",
+				"crybaby"
+			],
+			"title": "How to annoy your brother"
+		},
+		{
+			"id": "FqPHRq0GVkZyoBUm6RWe",
+			"courseCreator": "Grills",
+			"courseDescription": "oooh boy, ain't it wild",
+			"discount": 3,
+			"discountValidTill": "2021-07-30T04:30:00.000Z",
+			"price": 20000,
+			"tags": [
+				"survival",
+				"pet training"
+			],
+			"title": "How to train your giraffe"
+		},
+		{
+			"id": "FqPHRq1GVkZyoBUm6RWe",
+			"courseCreator": "monkeymoon",
+			"courseDescription": "Turn your Labrador into a cake baking hustler ",
+			"discount": 14,
+			"discountValidTill": "2021-07-30T04:30:00.000Z",
+			"price": 6488,
+			"tags": [
+				"dog lover",
+				"side hustle"
+			],
+			"title": "How to train your dog to bake"
+		},
+		{
+			"id": "FqPHRq2GVkZyoBUm6RWe",
+			"courseCreator": "randomGuy",
+			"courseDescription": "The RIGHT way to mow your lawn",
+			"discount": 16,
+			"discountValidTill": "2021-07-30T04:30:00.000Z",
+			"price": 7837,
+			"tags": [
+				"lawn mowing",
+				"safety first"
+			],
+			"title": "How to NOT mow your lawn"
+		},
+		{
+			"id": "FqPHRq3GVkZyoBUm6RWe",
+			"courseCreator": "hasSinned37",
+			"courseDescription": "In this course I advice you against sins, Father sure is busy",
+			"discount": 13,
+			"discountValidTill": "2021-07-30T04:30:00.000Z",
+			"price": 4565,
+			"tags": [
+				"church",
+				"confess"
+			],
+			"title": "How to confess in a Church"
+		},
+		{
+			"id": "FqPHRq4GVkZyoBUm6RWe",
+			"courseCreator": "Lecter",
+			"courseDescription": "Become the best butcher of your town",
+			"discount": 8,
+			"discountValidTill": "2021-07-30T04:30:00.000Z",
+			"price": 5623,
+			"tags": [
+				"butchering",
+				"NSF Vegans"
+			],
+			"title": "How to skin"
+		},
+		{
+			"id": "FqPHRq5GVkZyoBUm6RWe",
+			"courseCreator": "SpeedUncle99",
+			"courseDescription": "Become the lone wolf sigma you wish you were",
+			"discount": 6,
+			"discountValidTill": "2021-07-30T04:30:00.000Z",
+			"price": 5835,
+			"tags": [
+				"sigma male",
+				"sigma male"
+			],
+			"title": "Sigma Male Grindset"
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+	"expertise": [
+		{
+			"id": "1",
+			"displayValue": "java"
+		},
+		{
+			"id": "2",
+			"displayValue": "react"
+		},
+		{
+			"id": "3",
+			"displayValue": "backend"
+		}
+	]
+}
