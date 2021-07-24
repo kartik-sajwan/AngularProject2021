@@ -1,4 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
 $color-white: #FFFFFF;
 $color-black: #000000;
 
@@ -281,7 +280,7 @@ main {
 
 /* This styles react background image and page title */
 .container {
-	background-image: url('/assets/Mask Group 1.png');
+	background-image: url('../assets/Mask Group 1.png');
 	background-position: right;
 	background-repeat: no-repeat;
 	background-size: initial;
@@ -373,7 +372,7 @@ h2{
 				.prod-img {
 					width: 7.9rem;
 					height: 7.0rem;
-					background-image: url('/assets/course.jpg');
+					background-image: url('../assets/course.jpg');
 					background-repeat: no-repeat;
 					// background: #F2F2F2 0% 0% no-repeat padding-box;
 				}
@@ -638,7 +637,7 @@ h4{
 					.prod-img {
 						width: 7.9rem;
 						height: 7.0rem;
-						background-image: url('/assets/course.jpg');
+						background-image: url('../assets/course.jpg');
 						background-repeat: no-repeat;
 						// background: #F2F2F2 0% 0% no-repeat padding-box;
 		

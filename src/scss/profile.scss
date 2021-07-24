@@ -1,0 +1,535 @@
+
+$color-white: #FFFFFF;
+$color-black: #000000;
+/*	---Styling for profile page begins---	*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+html {
+	font-size: 10px;
+	width: 100%;
+}
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+main {
+	padding-top: 5rem;
+}
+.navbar {
+	position: fixed;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	overflow: hidden;
+	width: 100%;
+	height: 5.5rem;
+	background: #F5F5F5 0% 0% no-repeat padding-box;
+	box-shadow: 0rem 0.3rem 0.6rem #00000029;
+	margin-left: -2%;
+
+	.mobile-back-btn{
+		display: block;
+		padding: 0rem 0rem 0rem 1.8rem;
+	}
+	.logo {
+		align-self: center;
+		padding: 1.5rem;
+		
+	}
+	.logo-all-courses {
+		margin: 0% 2%;
+		padding: 1rem;
+		#toggle-btn {
+			display: none;
+		}
+	}
+	.navigation{
+		display: none;
+	}
+}
+
+
+.container {
+	background-image: url('../assets/BG.png');
+	background-position: right;
+	background-repeat: no-repeat;
+	background-size: initial;
+	background-position-y: unset;
+	background-color: $color-black;
+	display:flex;
+	align-items: center;
+	border: 0;
+	border-radius: 0.5rem;
+	height: 7.8rem;
+	margin-top: 8%;
+
+	.page_title {
+		text-align: left;
+		font: normal normal 600 2rem/2.4rem Montserrat;
+		color: $color-white;
+		max-width: 28rem;
+		margin: 1.5% 0% 2.5% 6%;
+	}
+}
+
+section {
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+.profile-pic {
+	width: 9.6rem;
+	height: 7.6rem;
+	opacity: 1;
+	padding-top: 1rem;
+}
+.user-img {
+	width: 100%;
+	height: 100%;
+	border-radius: 0.75rem;
+}
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	opacity: 1;
+}
+.form-row {
+	margin-top: 2rem;
+}
+.form-row-1 {
+	display: flex;
+	flex-direction: column;
+}
+.form-group {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin: 1rem auto;
+}
+input {
+	color: #848484;
+	font-family: 'Montserrat', sans-serif;
+}
+textarea {
+	color: #848484;
+	font-family: 'Montserrat', sans-serif;
+}
+label {
+	font-size: 1.25rem;
+}
+.form-input {
+	width: 35rem;
+	text-align: left;
+	border: none;
+	padding: 1.2rem;
+	font-size: 1.25rem;
+	line-height: 1.5;
+	letter-spacing: 0px;
+	color: #848484;
+	background: #f6f8ff 0% 0% no-repeat padding-box;
+	opacity: 1;
+}
+.form-row-2 {
+	display: flex;
+	flex-direction: column;
+}
+.about {
+	font-size: 1.25rem;
+	padding: 1rem;
+	border: none;
+	background: #f6f8ff 0% 0% no-repeat padding-box;
+	width: 35rem;
+}
+.form-control {
+	display: flex;
+	margin-top: 1rem;
+	line-height: 1.8;
+}
+.form-control-check {
+	flex-direction: column;
+}
+.form-row-3 {
+	display: flex;
+	flex-direction: column;
+}
+
+.custom-check {
+	display: block;
+	position: relative;
+	padding-left: 3.5rem;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 1.25rem;
+	color: #242222;
+	opacity: 100%;
+	/*	Hide the browsers default checkbox	*/
+	input {
+		position: absolute;
+		opacity: 0;
+		cursor: pointer;
+		height: 0;
+		width: 0;
+		// Show custom checkmark when checked //
+		&:checked {
+			~ {
+				.checkmark {
+					background-color: #FF6738;
+					&:after {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+	/*	Styling for custom checkmark	*/
+	.checkmark {
+		&:after {
+			left: 0.9rem;
+			top: 0.5rem;
+			width: 0.35rem;
+			height: 0.8rem;
+			border: solid #fff;
+			border-width: 0 0.3rem 0.3rem 0;
+			-webkit-transform: rotate(45deg);
+			-ms-transform: rotate(45deg);
+			transform: rotate(45deg);
+		}
+	}
+}
+/*	Custom Checkbox Design	*/
+.checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 2.4rem;
+	width: 2.4rem;
+	margin-top: 0.15rem;
+	border-radius: 0.6rem;
+	background: #e0e5f8 0% 0% no-repeat padding-box;
+	&:after {
+		content: '';
+		position: absolute;
+		display: none;
+	}
+}
+
+.custom-radio {
+	display: block;
+	position: relative;
+	padding-left: 3.5rem;
+	margin-bottom: 1.2rem;
+	cursor: pointer;
+	font-size: 1.25rem;
+	width: 8.5rem;
+	/*	Hide the browsers default radiobutton	*/
+	input {
+		position: absolute;
+		opacity: 0;
+		cursor: pointer;
+		height: 0;
+		width: 0;
+		// Show custom radiomark when checked //
+		&:checked {
+			~ {
+				.radiomark {
+					background-color: #FF6738;
+					border: 0.2rem solid #FF6738;
+					&:after {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+	/*	Styling for custom radio mark dot/circle	*/
+	.radiomark {
+		&:after {
+			top: 0.35rem;
+			left: 0.45rem;
+			width: 1.15rem;
+			height: 1.15rem;
+			border-radius: 50%;
+			background: #fff;
+		}
+	}
+}
+hr {
+	width: 35rem;
+	margin-bottom: 2rem;
+}
+
+/*	Custom Radio Button Design	*/
+.radiomark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 2rem;
+	width: 2.12rem;
+
+	border-radius: 50%;
+	border: 0.2rem solid #a0abd9;
+	&:after {
+		content: '';
+		position: absolute;
+		display: none;
+	}
+}
+.expertise {
+	margin-top: 2rem;
+}
+.role {
+	margin-top: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+#hidden-section {
+	display: none;
+}
+.save {
+	display: flex;
+	flex-direction: row-reverse;
+	width: 100%;
+}
+.save-btn-mobile {
+	background: #FF6738 0% 0% no-repeat padding-box;
+	color: #fff;
+	border: 0;
+	width: 37.5rem;
+	height: 5.1rem;
+	font-size: 1.6rem;
+	margin-bottom: -2.5%;
+}
+.save-btn {
+	display: none;
+}
+.form-label {
+	align-self: flex-start;
+	margin-bottom: 1rem;
+	font-size: 1.25rem;
+	line-height: 1.5;
+	color: #454545;
+	opacity: 50%;
+}
+
+
+
+/*	***Styling for profile page ends */
+
+/*	media queries for responsive profile page	*/
+
+//	Using mobile first approach for profile page
+@media (min-width: 1920px) {
+
+	main {
+		margin: 0% 7%;
+		padding-top: 8rem;
+	}
+	
+	hr{
+		display: none;
+	}
+
+	.navbar{
+		position: fixed;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		overflow: hidden;
+		width: 100%;
+		height: 6rem;
+		background: #F5F5F5 0% 0% no-repeat padding-box;
+		box-shadow: 0rem 0.3rem 0.6rem #00000029;
+		margin-left: -0.2%;
+		margin-top: -0.4%;
+		.mobile-back-btn{
+			display: none;
+		}
+		.logo {
+			align-self: center;
+			margin: 0% 7%;
+			padding: 1rem;
+		}
+		.navigation{
+			display: flex;
+			margin-right: 1%;
+			justify-content: space-evenly;
+			align-items: center;
+			.nav-link {
+				text-align: left;
+				font: normal normal normal 1.6rem/1.9rem Montserrat;
+				color: #080808;
+				width: 11.25rem;
+	
+				&:nth-child(2) {
+					padding-right: 4rem;
+				}
+	
+				a {
+					&:visited,
+					&:link {
+						font-weight: bold;
+						text-decoration: none;
+						color: #080808;
+					}	
+				}
+			}
+			.nav-icon {
+				padding-left: 3rem;
+				padding: 0 1.5rem;
+			}
+		}
+
+	}
+	.container {
+		background-image: url('../assets/Mask Group 1.png');
+		background-position: right;
+		background-repeat: no-repeat;
+		background-size: initial;
+		background-position-y: unset;
+		background-color: $color-black;
+		display:flex;
+		border: 0;
+		border-radius: 0.5rem;
+		height: 11.1rem;
+		margin: -.3% 0% 2% 0%;
+
+		.page_title {
+			text-align: left;
+			font: normal normal 600 2rem/2.4rem Montserrat;
+			color: $color-white;
+			max-width: 28rem;
+			margin: 1.5% 0% 2.5% 2%;
+		}
+	}
+
+	section {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+	
+	.form-control-radio {
+		flex-direction: row;
+	}
+	.profile-pic {
+		width: 26rem;
+		height: 20rem;
+		background: #ffffff 0% 0% no-repeat padding-box;
+		box-shadow: 0 0.3rem 0.6rem #00000029;
+	}
+	form {
+		margin: 0rem 0rem 0rem 2.12rem;
+		width: 136.4rem;
+		height: 100%;
+		background: #ffffff 0% 0% no-repeat padding-box;
+		box-shadow: 0 0.3rem 0.6rem #00000029;
+		padding-bottom: 2rem;
+	}
+	.form-row {
+		padding-left: 2rem;
+		margin-top: 2rem;
+	}
+	.form-row-1 {
+		flex-direction: row;
+	}
+	.form-group {
+		display: flex;
+		flex-direction: column;
+	}
+	label {
+		font-size: 1.4rem;
+	}
+	.form-input {
+		width: 30rem;
+		height: 4rem;
+		text-align: left;
+		margin-right: 10rem;
+		border: none;
+		padding: 1.2rem;
+		font: normal normal medium 1.4rem/1.8rem Montserrat;
+		line-height: 1.8;
+		color: #848484;
+		background: #f7f8ff 0% 0% no-repeat padding-box;
+		opacity: 1;
+	}
+	.about {
+		font-size: 1.25rem;
+		padding: 1rem;
+		border: none;
+		background: #f6f8ff 0% 0% no-repeat padding-box;
+		width: 70rem;
+	}
+	.form-label {
+		height: 1.5rem;
+		text-align: left;
+		font: normal normal medium 1.2rem/1.5rem Montserrat;
+		color: #454545;
+		opacity: 1;
+	}
+
+	//	Adjusting custom checkbox and radio for larger screens
+	.custom-check {
+		font-size: 1.4rem;
+	}
+	.custom-radio {
+		input {
+			&:checked {
+				~ {
+					.radiomark {
+						background-color: #fff;
+						border: 0.2rem solid #FF6738;
+					}
+				}
+			}
+		}
+		.radiomark {
+			&:after {
+				top: 0.4rem;
+				left: 0.4 rem;
+				width: 1.15rem;
+				height: 1.15rem;
+				border-radius: 50%;
+				background: #FF6738;
+			}
+		}
+	}
+	.form-row-5 {
+		border: 1px solid #e0e0e0;
+		padding: 2rem;
+		margin-left: 1rem;
+		width: 95%;
+	}
+	.save-btn {
+		display: block;
+		border-radius: 0.4rem;
+		color: #fff;
+		font-weight: 600;
+		border: 0;
+		margin-top: 2rem;
+		margin-right: 2rem;
+		width: 10%;
+		height: 4rem;
+		font-size: 1.6rem;
+		color: #848484;
+		background: #e0e5f8 0% 0% no-repeat padding-box;
+		font: normal normal 300 1.6rem/1.9rem Montserrat;
+	}
+	.save-btn-mobile {
+		display: none;
+	}
+	.form-control-role {
+		flex-direction: column;
+	}
+	.form-control-level {
+		flex-direction: column;
+	}
+}
+
+/*	---Styling for profile page ends---	*/

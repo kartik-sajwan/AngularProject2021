@@ -1,0 +1,27 @@
+<div class="card" key='${course.id}'>
+	<div class="about">
+		<div class="prod-img"></div>
+		<div class="description">
+			<p>{{ courseService.courses[index].title}}</p>
+			<div class="reactions">
+				<div class="pill">{{ courseService.courses[index].tags[0] }}</div>
+				<div class="pill">{{ courseService.courses[index].tags[1] }}</div>
+			</div>
+		</div>
+		<div class="author"><p class="mobile">-</p>{{ courseService.courses[index].courseCreator }}</div>
+		<div class="reactions-mobile">
+				<div class="pill">{{ courseService.courses[index].tags[0] }}</div>
+				<div class="pill">{{ courseService.courses[index].tags[1] }}</div>
+				
+		</div>
+	</div>
+	<div class="action">
+		<div class="star"> <img src="" alt="firstimg"> </div>
+		<div class="mobile-price">
+			<div class="price">{{ courseService.courses[index].price - (courseService.courses[index].discount * courseService.courses[index].price /100) }}</div>
+			<div class="discount">{{ courseService.courses[index].price }}</div>
+		</div>
+		<div class="add-to-cart"> <button class="cart-btn" (onclick)="courseService.addToCart(courseService.courses[index].id)">ADD TO CART </button> </div>
+		<div class="exp"> <img src=""> </div>
+	</div>
+</div>
