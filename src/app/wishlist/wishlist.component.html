@@ -1,0 +1,14 @@
+<main>
+<app-banner [pageTitle]='pageTitle'></app-banner>
+	<app-search-sort></app-search-sort>
+	<div class="course-wrapper">
+		<div class="wrap">
+			<section class="course-list" id="clist" *ngFor="let course of courseService.inWishlist; let i = index">
+				<app-course-item [index] = "i" [course]="course" [typeOfCard]='1'></app-course-item>
+			</section>
+		</div>
+		<section class="cart">
+			<app-side-cart></app-side-cart>
+		</section>
+	</div>
+</main>

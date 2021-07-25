@@ -1,0 +1,32 @@
+<main>
+	<div class="container">
+		<h1 class="page_title">{{ pageTitle }}</h1>
+	</div>
+
+	<h3>{{ courseService.inCartCount}} Courses in Cart</h3>
+	<div class="show-cart">
+		<div class="cart-wrapper">
+			<section class="in-cart-list" id="in-cart" *ngFor="let course of courseService.inCart; let i = index" >
+				<app-course-item [index] = "i" [typeOfCard]='2' [course]="course"></app-course-item>
+			</section>
+			<div class="wrap">
+				<h4>Recommended Courses</h4>
+				<section class="recommendation" id="recommend" *ngFor="let course of courseService.inWishlist; let i = index" >
+					<app-course-item [index] = "i" [typeOfCard]='3' [course]='course'></app-course-item>
+				</section>
+			</div>
+		</div>
+		<section class="cart-total">
+			<div class="cart-details">
+				<p>Total Amount</p>
+			</div>
+			<div class="cart-value">
+				<p>Rs {{courseService.cartValue}}/-</p>
+			</div>
+			<div class="checkout">
+				<button class="checkout-btn" (click)="courseService.placeOrder()">CHECKOUT</button>
+			</div>
+		</section>
+	</div>
+</main>
+	

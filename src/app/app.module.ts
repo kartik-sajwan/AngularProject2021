@@ -13,11 +13,17 @@ import { CourseListComponent } from './course-list/course-list.component';
 import { SideCartComponent } from './side-cart/side-cart.component';
 import { CourseItemComponent } from './course-item/course-item.component';
 import { CourseService } from './services/course.service';
+import { SideCartItemComponent } from './side-cart-item/side-cart-item.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes = [
   {path: '', component: AllCoursesComponent},
   {path: 'all-courses', component: AllCoursesComponent},
-
+  {path: 'wishlist', component: WishlistComponent},
+  {path: 'cart', component: CartComponent},
+  {path: 'profile', component: AllCoursesComponent},
+  
   {path: '**', component: AllCoursesComponent}
 ];
 
@@ -30,7 +36,10 @@ const routes = [
     SearchSortComponent,
     CourseListComponent,
     SideCartComponent,
-    CourseItemComponent
+    CourseItemComponent,
+    SideCartItemComponent,
+    WishlistComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,11 @@
+<div class="cart-main">
+	<div class="cart-list">
+		<div class="cart-item">
+			<div class="item-img"></div>
+			<div class="item-description">
+				<p>{{ courseService.inCart[index].title}}</p>
+			</div>
+		</div>
+	<div class="item-price">Rs {{ courseService.inCart[index].price - (courseService.inCart[index].discount * courseService.inCart[index].price /100) }}/-</div>
+</div>
+<hr>

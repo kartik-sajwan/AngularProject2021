@@ -19,7 +19,7 @@
 			"courseDescription": "He is adopted",
 			"discount": 15,
 			"discountValidTill": "2021-07-30T04:30:00.000Z",
-			"price": 9465,
+			"price": 9000,
 			"tags": [
 				"mischief",
 				"crybaby"
@@ -45,10 +45,10 @@
 			"courseDescription": "Turn your Labrador into a cake baking hustler ",
 			"discount": 14,
 			"discountValidTill": "2021-07-30T04:30:00.000Z",
-			"price": 6488,
+			"price": 6000,
 			"tags": [
 				"dog lover",
-				"side hustle"
+				"baking"
 			],
 			"title": "How to train your dog to bake"
 		},
@@ -58,7 +58,7 @@
 			"courseDescription": "The RIGHT way to mow your lawn",
 			"discount": 16,
 			"discountValidTill": "2021-07-30T04:30:00.000Z",
-			"price": 7837,
+			"price": 7000,
 			"tags": [
 				"lawn mowing",
 				"safety first"
@@ -71,10 +71,10 @@
 			"courseDescription": "In this course I advice you against sins, Father sure is busy",
 			"discount": 13,
 			"discountValidTill": "2021-07-30T04:30:00.000Z",
-			"price": 4565,
+			"price": 4000,
 			"tags": [
 				"church",
-				"confess"
+				"Priest"
 			],
 			"title": "How to confess in a Church"
 		},
@@ -84,12 +84,12 @@
 			"courseDescription": "Become the best butcher of your town",
 			"discount": 8,
 			"discountValidTill": "2021-07-30T04:30:00.000Z",
-			"price": 5623,
+			"price": 5000,
 			"tags": [
 				"butchering",
-				"NSF Vegans"
+				"skinning"
 			],
-			"title": "How to skin"
+			"title": "How to take care of skin"
 		},
 		{
 			"id": "FqPHRq5GVkZyoBUm6RWe",
@@ -97,10 +97,10 @@
 			"courseDescription": "Become the lone wolf sigma you wish you were",
 			"discount": 6,
 			"discountValidTill": "2021-07-30T04:30:00.000Z",
-			"price": 5835,
+			"price": 6000,
 			"tags": [
-				"sigma male",
-				"sigma male"
+				"sigmaMale",
+				"sigmaMale"
 			],
 			"title": "Sigma Male Grindset"
 		}

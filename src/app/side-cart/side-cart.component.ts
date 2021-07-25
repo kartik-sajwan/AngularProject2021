@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CourseService } from '../services/course.service';
 
 @Component({
   selector: 'app-side-cart',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideCartComponent implements OnInit {
 
-  constructor() { }
+  courseService: CourseService;
+  constructor(courseService: CourseService) { 
+    this.courseService = courseService;
+  }
 
   ngOnInit(): void {
   }

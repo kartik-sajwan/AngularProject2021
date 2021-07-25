@@ -1,5 +1,11 @@
-<app-banner></app-banner>
-<app-search-sort></app-search-sort>
-<div class="course-wrapper">
-	<app-course-list></app-course-list>
-</div>
+
+<main>
+	<app-banner [pageTitle]='pageTitle'></app-banner>
+	<app-search-sort></app-search-sort>
+	<div class="course-wrapper">
+		<app-course-list></app-course-list>
+		<section class="cart">
+			<app-side-cart></app-side-cart>
+		</section>
+	</div>
+</main>
