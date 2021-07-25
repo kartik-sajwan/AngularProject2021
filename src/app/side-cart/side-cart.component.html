@@ -1,1 +1,15 @@
-<p>side-cart works!</p>
+	<div class="your-cart-details">
+		<p>YOUR CART DETAILS</p>
+		<hr>
+	</div>
+	<app-side-cart-item *ngFor="let course of courseService.inCart; let i = index" [index] = "i"></app-side-cart-item>
+	<div class="summary">
+		<hr>
+		<div class="checkout">
+			<div class="cart-value">
+				Total cart Value
+				<p>Rs {{courseService.cartValue}}/-</p>
+			</div>
+			<button class="go-cart-btn" routerLink='/cart'>GO TO CHECKOUT</button>
+		</div>
+	</div>

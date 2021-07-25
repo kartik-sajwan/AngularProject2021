@@ -8,13 +8,14 @@ import { CourseService } from '../services/course.service';
 })
 export class AllCoursesComponent implements OnInit {
 
-  private courseService: CourseService;
+  pageTitle: string = 'Discover Latest Courses on React';
+  courseService: CourseService;
   constructor(courseService: CourseService) { 
     this.courseService = courseService;
   }
 
   ngOnInit(): void {
-    setTimeout(() => this.courseService.getCourses(), 1500);
+    // setTimeout(() => this.courseService.getCourses(), 1500);
 
   }
 

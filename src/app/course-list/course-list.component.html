@@ -1,3 +1,3 @@
 <section class="course-list" id="clist" *ngFor="let course of courseService.courses; let i = index">
-	<app-course-item [index] = "i"></app-course-item>
+	<app-course-item [index] = "i" [typeOfCard]='courseService.page' [course]="course"></app-course-item>
 </section>

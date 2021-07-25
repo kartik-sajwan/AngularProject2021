@@ -1,0 +1,154 @@
+$color-white: #FFFFFF;
+$color-black: #000000;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+
+/*mixing used for creating a card */
+@mixin card {
+	display: flex;
+	flex-direction: row;
+	width: 115.5rem;
+	height: 8rem;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1%;
+	margin: 2% 0%;
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	box-shadow: 0rem .3rem .6rem #00000029;
+	border: .1rem solid #F4F4F4;
+	border-radius: rem rem .4rem .4rem;
+
+}
+
+.card {
+	@include card;
+	.about {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		width: 58rem;
+		
+		.prod-img {
+			width: 7.9rem;
+			height: 7.0rem;
+			background-image: url('../../assets/course.jpg');
+			background-repeat: no-repeat;
+			// background: #F2F2F2 0% 0% no-repeat padding-box;
+		}
+		.description {
+			text-align: left;
+			letter-spacing: 0rem;
+			color: #080808;
+			display: flex;
+			flex-direction: column;
+			max-width: 33.5rem;
+			padding: 0%;
+			font: normal normal 600 1.8rem/2.2rem Montserrat;
+
+			.p{
+				padding: 0%;
+			}
+
+			.reactions {
+				display: inline-flex;
+				flex-direction: row;
+				justify-content: flex-start;
+
+				.pill {
+					text-align: center;
+					font: normal normal 1.2rem/1.5rem Montserrat;
+					letter-spacing: 0rem;
+					color: $color-white;
+					background: #E25B32 0% 0% no-repeat padding-box;
+					background-size: initial;
+					border-radius: 0.4rem;
+					margin: 4% 3% 2% 0%;
+					padding: 0.8% 5.4%;
+				}
+			}
+			
+		}
+
+		.author {
+			text-align: left;
+			font: normal normal 300 1.6rem/1.9rem Montserrat;
+			letter-spacing: 0rem;
+			min-width: 11.7rem;
+			color: #080808;
+			padding-top: 1rem;
+			p {
+				display: none;
+			}
+			
+		}
+		.reactions-mobile {
+			display: none;
+		}
+	}
+	.action {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		width: 44rem;
+		padding: 0rem 3rem;
+		.star {		
+			width: 2.6rem;
+		}
+		.mobile-price {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			flex-direction: row;
+			width: 100%;
+
+			.move-to-wishlist{
+				font: normal normal 600 1.6rem/1.9rem Montserrat;
+				color: #1873CE;
+				width: 17rem ;
+				border: none;
+				
+			}
+			.price {
+				text-align: center;
+				font: normal normal bold 2.0rem/2.4rem Montserrat;
+				color: #080808;
+			
+			}
+
+			.discount {
+				text-align: center;
+				text-decoration: line-through;
+				font: normal normal 600 1.6rem/1.9rem Montserrat;
+				letter-spacing: 0rem;
+				color: #080808;
+				min-width: 6.2rem;
+				
+			}
+		}
+		.cart-btn {
+			font: normal normal 600 1.6rem/1.9rem Montserrat;
+			color: $color-white;
+			width: 14.5rem ;
+			background: #FF6738 0% 0% no-repeat padding-box;
+			padding: 7%;
+			border: none;
+			border-radius: 0.4rem;
+		}
+		.mobile-trash {
+			.remove {
+				width: 2.8rem;
+				height: 3.1rem;
+			}
+		}
+		.exp {
+			padding-left: 2rem;
+			width: .6rem;
+			height: 1.2rem;
+		}
+		
+	}
+
+}

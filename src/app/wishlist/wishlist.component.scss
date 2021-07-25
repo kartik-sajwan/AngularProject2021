@@ -1,15 +1,21 @@
-html {
-	font-size: 10px; /* This specifies the root size for browsers mentioned in pixels, used to make rem calculations*/
-	width: 100%;
-}
-
 .course-wrapper {
-
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	width: 100%;
+	max-width: 100%;
 
+	
+}
+
+.wrap {
+	display: flex;
+	flex-direction: column;
+	
+}
+.course-list{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .cart {
