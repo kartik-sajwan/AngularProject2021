@@ -16,13 +16,17 @@ import { CourseService } from './services/course.service';
 import { SideCartItemComponent } from './side-cart-item/side-cart-item.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { CartComponent } from './cart/cart.component';
+import { ProfileComponent } from './profile/profile.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CourseDetailComponent } from './course-detail/course-detail.component';
 
 const routes = [
   {path: '', component: AllCoursesComponent},
   {path: 'all-courses', component: AllCoursesComponent},
   {path: 'wishlist', component: WishlistComponent},
   {path: 'cart', component: CartComponent},
-  {path: 'profile', component: AllCoursesComponent},
+  {path: 'profile', component: ProfileComponent},
+  {path: 'course-detail', component: AllCoursesComponent},
   
   {path: '**', component: AllCoursesComponent}
 ];
@@ -39,10 +43,27 @@ const routes = [
     CourseItemComponent,
     SideCartItemComponent,
     WishlistComponent,
-    CartComponent
+    CartComponent,
+    ProfileComponent,
+    CourseDetailComponent
+  ],
+  exports: [
+    CourseItemComponent,
+    NavigationComponent,
+    BannerComponent,
+    AllCoursesComponent,
+    SearchSortComponent,
+    CourseListComponent,
+    SideCartComponent,
+    CourseItemComponent,
+    SideCartItemComponent,
+    WishlistComponent,
+    CartComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot(routes)

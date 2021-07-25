@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, EventEmitter, Input,} from '@angular/core';
 import { CourseService } from '../services/course.service';
 
 @Component({
@@ -9,6 +9,8 @@ import { CourseService } from '../services/course.service';
 export class SearchSortComponent implements OnInit {
 
   courseService: CourseService;
+  @Input() pageTitle: string = '';
+  @Input() typeOfCard: number = 0;
   constructor(courseService: CourseService) { 
     this.courseService = courseService;
   }

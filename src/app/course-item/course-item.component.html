@@ -8,7 +8,7 @@
 				<div class="pill">{{ course.tags[1] }}</div>
 			</div>
 		</div>
-		<div class="author" *ngIf="typeOfCard === 0 || typeOfCard === 1 || typeOfCard === 2 || typeOfCard === 3"><p class="mobile">-</p>{{ courseService.courses[index].courseCreator }}</div>
+		<div class="author" *ngIf="typeOfCard === 0 || typeOfCard === 1 || typeOfCard === 2 || typeOfCard === 3"><p class="mobile">-</p>{{ course.courseCreator }}</div>
 		<div class="reactions-mobile">
 				<div class="pill">{{course.tags[0] }}</div>
 				<div class="pill">{{course.tags[1] }}</div>
@@ -16,7 +16,7 @@
 		</div>
 	</div>
 	<div class="action" >
-		<div class="star"  *ngIf="typeOfCard === 0"> <img src="./asset/grey_star.svg" alt="wishlist" (click)="courseService.addToWishlist(courseService.courses[index])"> </div>
+		<div class="star"  *ngIf="typeOfCard === 0"> <img src="../../assets/grey_star.svg" alt="wishlist" (click)="courseService.addToWishlist(courseService.courses[index])"> </div>
 		<div class="mobile-price">
 			<div class="move-to-wishlist" *ngIf="typeOfCard === 2" ><button (click)="courseService.moveToWishlist(courseService.inCart[index])"><p>MOVE TO WISHLIST</p></button> </div>
 			<div class="price">Rs  {{ course.price - (course.discount * course.price /100) }} /-</div>
