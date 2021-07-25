@@ -1,4 +1,4 @@
-import { Component, Input, OnInit} from '@angular/core';
+import { Component, Input, NgModule, NO_ERRORS_SCHEMA, OnInit} from '@angular/core';
 import { CourseService } from '../services/course.service';
 
 @Component({

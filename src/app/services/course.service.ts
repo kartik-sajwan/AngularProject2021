@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable, OnInit, OnChanges } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 // import { Subject } from 'rxjs/Subject';
@@ -19,6 +19,7 @@ export class CourseService {
   cartValue: number = 0;
   inCartCount: number = 0;
   chosenSort: string = "";
+  totalSavings: number = 0;
 
   private router: Router;
   private httpClient: HttpClient;
@@ -30,24 +31,26 @@ export class CourseService {
     })
   }
 
-  sortChange(){}
-  //     this.courses.sort( (course_a, course_b) => {
-  //       if((course_a.price - (course_a.discount * course_a.price/100)) > (course_b.price = (course_b.discount * course_b.price/100))){
-  //         return 1;
-  //       }
-  //       else if((course_a.price - (course_a.discount * course_a.price/100)) < (course_b.price = (course_b.discount * course_b.price/100))){
-  //         return -1;
-  //       }
-  //       return 0;
-  //     })
+  findPrice(course: {id:string, courseCreator: string, courseDescription: string, discount: number, discountValidTill: Date, price: number, tags: Array<string>, title:string}){
+    return (course.price - (course.discount * course.price /100));
+  }
+  sortChange(sort: string){
+      this.courses.sort( (course_a, course_b) => {
+        if(this.findPrice(course_a) > this.findPrice(course_b))
+          return 1;
+        else if (this.findPrice(course_a) < this.findPrice(course_b))
+          return -1;
+        return 0;
+      })
+      if(sort === "high"){
+        this.courses.reverse();
+      }
 
-  //     // if(sort === "low"){
-  //     //   this.courses.reverse();
-  //     // }
-  // }
-
-  searchCourses(key: string){
-    this.searchResults = this.courses.filter(course => course.tags[0] == key);
+  }
+  
+  searchCourses(event: Event){
+    console.log(event);
+    // this.searchResults = this.courses.filter(course => course.tags[0] == key);
   }
 
   addToCart(course: {id:string, courseCreator: string, courseDescription: string, discount: number, discountValidTill: Date, price: number, tags: Array<string>, title:string}){
@@ -60,6 +63,7 @@ export class CourseService {
     }
       this.inCart.push(course);
       this.cartValue += (course.price - (course.discount * course.price /100));
+      this.totalSavings += (course.discount * course.price /100);
       this.inCartCount++;
       alert("Course successfully added in the cart");
   }
@@ -95,7 +99,8 @@ export class CourseService {
       this.inCart.splice(this.inCart.indexOf(course), 1);
     }
     this.inCartCount--;
-    this.cartValue = this.cartValue - (course.price - (course.discount * course.price /100));    
+    this.cartValue = this.cartValue - (course.price - (course.discount * course.price /100)); 
+    this.totalSavings -= (course.discount * course.price /100);   
     this.cartValue = this.cartValue >> 0; //Round to zero using right shift
   }
 
@@ -112,6 +117,4 @@ export class CourseService {
     }
       
   }
-
-
 }

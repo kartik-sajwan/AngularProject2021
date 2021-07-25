@@ -1,0 +1,158 @@
+<main>
+	<app-banner [pageTitle]="pageTitle"></app-banner>
+
+	<!-- ***Profile img section -->
+	<section>
+		<div class="profile-pic">
+			<img src="../../assets/profile1.png" class="user-img">
+		</div>
+
+		<!-- ***Form starts*** -->
+		<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+			<div class="form-row form-row-1">
+				<div class="form-group">
+					<label class="form-label" for="dname">Display Name</label>
+					<input
+						type="text"
+						id="dname"
+						formControlName="dname"
+						placeholder="Display Name"
+						class="form-input"
+					/>
+				</div>
+				<div class="form-group">
+					<label class="form-label" for="fname">First Name</label>
+					<input
+						type="text"
+						id="fname"
+						formControlName="fname"
+						placeholder="First Name"
+						class="form-input"
+					/>
+				</div>
+				<div class="form-group">
+					<label class="form-label" for="lname">Last Name</label>
+					<input
+						type="text"
+						id="lname"
+						formControlName="lname"
+						placeholder="Last Name"
+						class="form-input"
+					/>
+				</div>
+			</div>
+
+			<div class="form-row form-row-2">
+				<div class="form-group">
+					<label class="form-label">About Yourself</label>
+					<textarea
+						class="about"
+						rows="10"
+						cols="20"formControlName="aboutYou"
+						placeholder="About Yourself"
+					></textarea>
+				</div>
+			</div>
+
+			<div class="form-row form-row-3">
+				<label class="form-label">Your Area of Interest</label>
+				<div class="form-control form-control-check" >
+					<label class="custom-check" *ngFor="let area of areaOfInterest">
+						<input type="checkbox" checked="checked" value="1" />
+						<span class="checkmark"></span>
+						{{ area.displayValue }}
+					</label>
+					<!-- <label class="custom-check">
+						<input type="checkbox" value="2" />
+						<span class="checkmark"></span>
+						Developer
+					</label>
+					<label class="custom-check">
+						<input type="checkbox" value="3" />
+						<span class="checkmark"></span>
+						Project Manager
+					</label>
+					<label class="custom-check">
+						<input type="checkbox" value="4" />
+						<span class="checkmark"></span>
+						Sales
+					</label> -->
+				</div>
+			</div>
+
+			<div class="form-row form-row-4">
+				<label class="form-label">Are you a student or Professional</label>
+				<div class="form-control form-control-level">
+					<label class="custom-radio">
+						<input type="radio" checked="checked" name="radio" value="student"/>
+						<span class="radiomark" id="student"></span>
+						Student
+					</label>
+					<label class="custom-radio">
+						<input type="radio" name="radio" value="student"/>
+						<span class="radiomark" id="professional"></span>
+						Professional
+					</label>
+				</div>
+			</div>
+
+			<div class="form-row form-row-5" id="hidden-section">
+				<div class="experience">
+					<hr id="line" />
+					<label class="form-label">How much of experience you have?</label>
+					<div class="form-control form-control-radio">
+						<label class="custom-radio">
+							<input type="radio" name="profession" checked="checked" />
+							<span class="radiomark"></span>
+							0-5
+						</label>
+						<label class="custom-radio">
+							<input type="radio" name="profession" />
+							<span class="radiomark"></span>
+							5-10
+						</label>
+						<label class="custom-radio">
+							<input type="radio" name="profession" />
+							<span class="radiomark"></span>
+							10 & Above
+						</label>
+					</div>
+				</div>
+				<div class="expertise">
+					<label class="form-label">What is your expertise</label>
+					<div class="form-control form-control-radio">
+						<label class="custom-radio">
+							<input type="radio" name="expertise" checked="checked" />
+							<span class="radiomark"></span>
+							Java
+						</label>
+						<label class="custom-radio">
+							<input type="radio" name="expertise" />
+							<span class="radiomark"></span>
+							<span class="label-text">React</span>
+						</label>
+						<label class="custom-radio">
+							<input type="radio" name="expertise" />
+							<span class="radiomark"></span>
+							Backend
+						</label>
+					</div>
+				</div>
+				<div class="form-control form-control-role">
+					<label class="form-label">Mention your role</label>
+					<input
+						type="text"
+						id="role"
+						placeholder="Enter your role"
+						class="form-input"
+					/>
+				</div>
+			</div>
+
+			<div class="save"><button class="save-btn">SAVE</button></div>
+		</form>
+		<!-- ***Form Ends*** -->
+
+		<button class="save-btn-mobile">SAVE</button>
+	</section>
+</main>

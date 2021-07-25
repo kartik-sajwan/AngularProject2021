@@ -6,7 +6,6 @@ import { CourseService } from '../services/course.service';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss']
 })
-
 export class NavigationComponent {
   courseService: CourseService;
   constructor(courseService: CourseService) { 
