@@ -19,14 +19,16 @@ import { CartComponent } from './cart/cart.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 const routes = [
-  {path: '', component: AllCoursesComponent},
+  {path: '', component: AllCoursesComponent, pathMatch : 'full'},
   {path: 'all-courses', component: AllCoursesComponent},
   {path: 'wishlist', component: WishlistComponent},
   {path: 'cart', component: CartComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'course-detail', component: AllCoursesComponent},
+  {path: 'search', component: SearchResultsComponent },
   
   {path: '**', component: AllCoursesComponent}
 ];
@@ -45,7 +47,8 @@ const routes = [
     WishlistComponent,
     CartComponent,
     ProfileComponent,
-    CourseDetailComponent
+    CourseDetailComponent,
+    SearchResultsComponent
   ],
   exports: [
     CourseItemComponent,

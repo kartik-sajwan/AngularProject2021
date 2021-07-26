@@ -1,6 +1,7 @@
 import { Injectable, OnInit, OnChanges } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { stringify } from '@angular/compiler/src/util';
 // import { Subject } from 'rxjs/Subject';
 
 
@@ -20,7 +21,8 @@ export class CourseService {
   inCartCount: number = 0;
   chosenSort: string = "";
   totalSavings: number = 0;
-
+  sort: string = '';
+  searchTerm: string = '';
   private router: Router;
   private httpClient: HttpClient;
   constructor(httpClient: HttpClient, router: Router) { 
@@ -34,7 +36,9 @@ export class CourseService {
   findPrice(course: {id:string, courseCreator: string, courseDescription: string, discount: number, discountValidTill: Date, price: number, tags: Array<string>, title:string}){
     return (course.price - (course.discount * course.price /100));
   }
-  sortChange(sort: string){
+  sortChange(event: Event){
+    
+    this.sort = (<HTMLTextAreaElement>event.target).value;
       this.courses.sort( (course_a, course_b) => {
         if(this.findPrice(course_a) > this.findPrice(course_b))
           return 1;
@@ -42,15 +46,27 @@ export class CourseService {
           return -1;
         return 0;
       })
-      if(sort === "high"){
+      if(this.sort === "high"){
         this.courses.reverse();
       }
 
   }
   
   searchCourses(event: Event){
-    console.log(event);
-    // this.searchResults = this.courses.filter(course => course.tags[0] == key);
+    this.searchTerm = (<HTMLTextAreaElement>event.target).value;
+    this.searchResults = this.courses.filter(course => {
+      if(course.title.includes(this.searchTerm)){
+        return course;
+      }
+      else if (course.tags.includes(this.searchTerm)){
+        return course;
+      }
+      else if (course.courseDescription.includes(this.searchTerm)){
+        return course;
+      }
+      return;
+    });
+    console.log(this.searchResults);
   }
 
   addToCart(course: {id:string, courseCreator: string, courseDescription: string, discount: number, discountValidTill: Date, price: number, tags: Array<string>, title:string}){
@@ -81,6 +97,14 @@ export class CourseService {
       alert("Course successfully added in the wishlist");
     }
   }
+
+  isInWishlist(course: {id:string, courseCreator: string, courseDescription: string, discount: number, discountValidTill: Date, price: number, tags: Array<string>, title:string}): boolean{
+    if(this.inWishlist.indexOf(course) !== -1){
+      return true;
+    }
+    return false;
+  }
+
 
   removeWishlisted(course: {id:string, courseCreator: string, courseDescription: string, discount: number, discountValidTill: Date, price: number, tags: Array<string>, title:string}){
     if(this.inWishlist.length == 1){

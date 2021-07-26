@@ -1,0 +1,33 @@
+.course-wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	max-width: 100%;
+
+	
+}
+
+.wrap {
+	display: flex;
+	flex-direction: column;
+	
+}
+.course-list{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.cart {
+	display: flex;
+	flex-direction: column;
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	box-shadow: 0rem 0.3rem 0.6rem #00000029;
+	width: 27%;
+	height: 80%;
+	max-height: 80%;
+	margin: 1.45% 0%;
+	padding: 2rem 0rem;
+	border: 0.1rem solid #F4F4F4;
+	border-radius: 0rem 0rem 0.4rem 0.4rem;
+}

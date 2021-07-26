@@ -29,7 +29,7 @@
 		{
 			"id": "FqPHRq0GVkZyoBUm6RWe",
 			"courseCreator": "Grills",
-			"courseDescription": "oooh boy, ain't it wild",
+			"courseDescription": "ain't it wild",
 			"discount": 3,
 			"discountValidTill": "2021-07-30T04:30:00.000Z",
 			"price": 20000,
@@ -50,7 +50,7 @@
 				"dog lover",
 				"baking"
 			],
-			"title": "How to do launch a sattelite"
+			"title": "How to launch"
 		},
 		{
 			"id": "FqPHRq2GVkZyoBUm6RWe",
@@ -63,12 +63,12 @@
 				"lawn mowing",
 				"safety first"
 			],
-			"title": "How to NOT mow your lawn"
+			"title": "The RIGHT way"
 		},
 		{
 			"id": "FqPHRq3GVkZyoBUm6RWe",
-			"courseCreator": "hasSinned37",
-			"courseDescription": "In this course I advice you against sins, Father sure is busy",
+			"courseCreator": "iam37",
+			"courseDescription": "in a Church",
 			"discount": 13,
 			"discountValidTill": "2021-07-30T04:30:00.000Z",
 			"price": 4000,
@@ -76,7 +76,7 @@
 				"church",
 				"Priest"
 			],
-			"title": "How to confess in a Church"
+			"title": "How to confess "
 		},
 		{
 			"id": "FqPHRq4GVkZyoBUm6RWe",
@@ -89,7 +89,7 @@
 				"butchering",
 				"skinning"
 			],
-			"title": "How to take care of skin"
+			"title": "How to skin"
 		},
 		{
 			"id": "FqPHRq5GVkZyoBUm6RWe",
