@@ -219,6 +219,9 @@ hr {
 		display: none;
 	}
 }
+.exp-radio{
+	display: flex;
+}
 .expertise {
 	margin-top: 2rem;
 }
@@ -279,6 +282,13 @@ hr {
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: flex-start;
+		margin: 2% 0%;
+		textarea{
+			outline: none;
+		}
+		input{
+			outline: none;
+		}
 	}
 	
 	.form-control-radio {
@@ -383,9 +393,12 @@ hr {
 		width: 10%;
 		height: 4rem;
 		font-size: 1.6rem;
-		color: #848484;
-		background: #e0e5f8 0% 0% no-repeat padding-box;
+		background: #FF6738 0% 0% no-repeat padding-box;
 		font: normal normal 300 1.6rem/1.9rem Montserrat;
+		
+	}
+	.save-btn[disabled]{
+		background: #e0e5f8 0% 0% no-repeat padding-box;
 	}
 	.save-btn-mobile {
 		display: none;

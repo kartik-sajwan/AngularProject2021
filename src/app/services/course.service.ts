@@ -54,8 +54,10 @@ export class CourseService {
   
   searchCourses(event: Event){
     this.searchTerm = (<HTMLTextAreaElement>event.target).value;
+    this.searchTerm = this.searchTerm.toLowerCase();
+    
     this.searchResults = this.courses.filter(course => {
-      if(course.title.includes(this.searchTerm)){
+      if(course.title.toLowerCase().includes(this.searchTerm)){
         return course;
       }
       else if (course.tags.includes(this.searchTerm)){

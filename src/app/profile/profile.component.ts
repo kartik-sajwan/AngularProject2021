@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http'
 import { UserService } from '../services/user.service';
 import { stringify } from '@angular/compiler/src/util';
@@ -95,14 +95,14 @@ export class ProfileComponent implements OnInit {
   }
 
   profileForm: FormGroup =new FormGroup({
-    'dname': new FormControl(null),
-    'fname': new FormControl(null),
+    'dname': new FormControl(null, [Validators.required]),
+    'fname': new FormControl(null, [Validators.required]),
     'lname': new FormControl(null),
-    'aboutYou': new FormControl(null),
+    'aboutYou': new FormControl(null, [Validators.maxLength(100)]),
     'areaInterest': this.fb.array([]),
     'profileType': new FormControl(null),
-    'experience': new FormControl(null),
-    'expertise': new FormControl(null),
+    'experienced': new FormArray([]),
+    'expertise': new FormArray([]),
     'role': new FormControl(null)
   });
 
@@ -130,6 +130,15 @@ export class ProfileComponent implements OnInit {
     return <FormControl>this.profileForm.get('profileType');
   }
 
+  get expGet(){
+    return <FormArray>this.profileForm.get('experienced');
+  }
+
+  get expertGet(){
+    return <FormArray>this.profileForm.get('expertise');
+  }
+
+
   initializeForm() {
     this.profileForm.patchValue({
       dname: this.userService.userDetails.displayName,
@@ -137,23 +146,32 @@ export class ProfileComponent implements OnInit {
       lname: this.userService.userDetails.lastName,
       aboutYou: this.userService.userDetails.aboutYourself,
       profileType: this.userService.userDetails.isProfessional === true ? "1": "0",
-      experience: this.userService.userDetails.experience,
-      
+      role: this.userService.userDetails.roleText
     });
 
     let area = <FormArray>this.profileForm.controls.areaInterest;
     this.userService.areaOfInterest.forEach(areaFill => {
+      console.log(areaFill);
       area.push(this.fb.array([areaFill]))
     })
 
-    console.log(this.profile);
+    let exp = <FormArray>this.profileForm.controls.experienced;
+    this.userService.experience.forEach(expFill => {
+      exp.push(this.fb.array([expFill]))
+    })
+
+    let expert = <FormArray>this.profileForm.controls.expertise;
+    this.userService.expertise.forEach(expFill => {
+      expert.push(this.fb.array([expFill]))
+    })
+    console.log(expert);
   }
 
-  onChanges() {
-    this.profileForm.get('profileType')?.valueChanges.subscribe(val => {
-      console.log(val)
-    })
-  }
+  // onChanges() {
+  //   this.profileForm.get('profileType')?.valueChanges.subscribe(val => {
+  //     console.log(val)
+  //   })
+  // }
 
 
   onSubmit(){
