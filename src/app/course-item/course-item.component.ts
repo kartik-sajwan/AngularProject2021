@@ -1,4 +1,4 @@
-import { Component, Input, NgModule, NO_ERRORS_SCHEMA, OnInit} from '@angular/core';
+import { Component, Input, NgModule, NO_ERRORS_SCHEMA, OnInit, ViewContainerRef, ComponentFactoryResolver} from '@angular/core';
 import { CourseService } from '../services/course.service';
 
 @Component({
@@ -20,12 +20,23 @@ export class CourseItemComponent implements OnInit {
     title : ''
   };
   @Input() typeOfCard:number = 0;
-  courseService: CourseService;
   @Input() index:number = 0;
-  
-  constructor(courseService: CourseService) { 
-    this.courseService = courseService;
-  }
+  courseService: CourseService;
+  constructor(
+    private viewcontref: ViewContainerRef,
+    private compfactresol: ComponentFactoryResolver,
+    courseService: CourseService
+  ) {this.courseService = courseService;}
+
   ngOnInit(): void {
+  }
+
+  loadCourseDetails() {
+    import('../course-detail/course-detail.component').then(({CourseDetailComponent})=>{
+      this.viewcontref.clear();
+      const cmp=this.compfactresol.resolveComponentFactory(CourseDetailComponent);
+      const courseDetail=this.viewcontref.createComponent(cmp);
+      courseDetail.instance.course = this.course;
+    });
   }
 }

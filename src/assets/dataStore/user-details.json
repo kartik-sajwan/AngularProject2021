@@ -2,12 +2,12 @@
 	"user": {
 		"id": "G8oCAXWM1FZL8xLOlQS3",
 		"firstName": "Saurabh",
-		"displayName": "TOny",
+		"displayName": "Tony",
 		"roleText": "UI developer",
 		"aboutYourself": "I am Iron Man",
 		"experience": "1",
 		"areasOfInterest": [
-			"1"
+			"1", "2"
 		],
 		"isProfessional": true,
 		"expertise": "1",
