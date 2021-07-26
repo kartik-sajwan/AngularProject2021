@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http'
-
+import { UserService } from '../services/user.service';
+import { stringify } from '@angular/compiler/src/util';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -9,6 +10,7 @@ import { HttpClient } from '@angular/common/http'
 })
 export class ProfileComponent implements OnInit {
 
+  userService: UserService;
   userDetails: {
     id: string,
     firstName: string,
@@ -32,81 +34,64 @@ export class ProfileComponent implements OnInit {
      expertise: '1',
      lastName: 'Sinha'
    };
-  areaOfInterest: Array<{id:string, displayValue: string}> = [
-		{
-			"id": "1",
-			"displayValue": "designer"
-		},
-		{
-			"id": "2",
-			"displayValue": "developer"
-		},
-		{
-			"id": "3",
-			"displayValue": "manager"
-		},
-		{
-			"id": "4",
-			"displayValue": "sales"
-		}
-	]; 
-  experience: Array<{id: string, displayValue: string}> = [
-		{
-			"id": "1",
-			"displayValue": "0-5"
-		},
-		{
-			"id": "2",
-			"displayValue": "5-10"
-		},
-		{
-			"id": "3",
-			"displayValue": "> 10"
-		}
-	];
-  expertise: Array<{id:string, displayValue: string}> = [
-		{
-			"id": "1",
-			"displayValue": "java"
-		},
-		{
-			"id": "2",
-			"displayValue": "react"
-		},
-		{
-			"id": "3",
-			"displayValue": "backend"
-		}
-	]; 
+   areaOfInterest: Array<{id:string, displayValue: string}> =[];
+   experience: Array<{id: string, displayValue: string}> =[];
+   expertise: Array<{id:string, displayValue: string}> =[];
+
+  // areaOfInterest: Array<{id:string, displayValue: string}> = [
+	// 	{
+	// 		"id": "1",
+	// 		"displayValue": "designer"
+	// 	},
+	// 	{
+	// 		"id": "2",
+	// 		"displayValue": "developer"
+	// 	},
+	// 	{
+	// 		"id": "3",
+	// 		"displayValue": "manager"
+	// 	},
+	// 	{
+	// 		"id": "4",
+	// 		"displayValue": "sales"
+	// 	}
+	// ]; 
+  // experience: Array<{id: string, displayValue: string}> = [
+	// 	{
+	// 		"id": "1",
+	// 		"displayValue": "0-5"
+	// 	},
+	// 	{
+	// 		"id": "2",
+	// 		"displayValue": "5-10"
+	// 	},
+	// 	{
+	// 		"id": "3",
+	// 		"displayValue": "> 10"
+	// 	}
+	// ];
+  // expertise: Array<{id:string, displayValue: string}> = [
+	// 	{
+	// 		"id": "1",
+	// 		"displayValue": "java"
+	// 	},
+	// 	{
+	// 		"id": "2",
+	// 		"displayValue": "react"
+	// 	},
+	// 	{
+	// 		"id": "3",
+	// 		"displayValue": "backend"
+	// 	}
+	// ]; 
 
   pageTitle:string = "My Profile";
 
   profileForm: FormGroup = new FormGroup({});
-
-  private httpClient: HttpClient;
-  constructor(httpClient: HttpClient) { 
-    this.httpClient = httpClient;
-    this.httpClient.get("./assets/dataStore/user-details.json").subscribe((response: any = []) => {
-      this.userDetails = response.user;
-      console.log("userdetails");
-      console.log(this.userDetails);
-    })
-    this.httpClient.get("./assets/dataStore/interest-area.json").subscribe((response: any = []) => {
-      this.areaOfInterest = response.area;
-      console.log("area");
-      console.log(this.areaOfInterest);
-    })
-    this.httpClient.get("./assets/dataStore/experience.json").subscribe((response: any = []) => {
-      this.experience = response.experience;
-      console.log("exp");
-      console.log(this.experience);
-    })
-    this.httpClient.get("./assets/dataStore/expertise.json").subscribe((response: any = []) => {
-      this.expertise = response.expertise;
-      console.log("expert");
-      console.log(Date.now());
-      console.log(this.expertise);
-    })
+  fb: FormBuilder = new FormBuilder();
+  
+  constructor(userService: UserService, fb: FormBuilder) {
+    this.userService = userService;
   }
 
 
@@ -117,7 +102,7 @@ export class ProfileComponent implements OnInit {
       'fname': new FormControl(null),
       'lname': new FormControl(null),
       'aboutYou': new FormControl(null),
-      'areaInterest': new FormArray([]),
+      'areaInterest': this.fb.array([]),
       'profileType': new FormGroup({
         'student': new FormControl(null),
         'professional': new FormControl(null),
@@ -135,30 +120,41 @@ export class ProfileComponent implements OnInit {
     // }, 50);
     // console.log(Date.now());
     
+    this.initializeForm();
     
+    console.log(this.userService.areaOfInterest);
   }
 
   initializeForm() {
-    this.profileForm.setValue({
-      dname: this.userDetails.displayName,
-      fname: this.userDetails.firstName,
-      lname: this.userDetails.lastName,
-      aboutYou: this.userDetails.aboutYourself,
-      areaInterest: this.areaOfInterest,
-      profileType: {
-        student: 0,
-        professional: 1
-      },
-      additional: {
-        experience: this.experience,
-        expertise: this.experience,
-        role: this.userDetails.roleText
-      }
+    this.profileForm.patchValue({
+      dname: this.userService.userDetails.displayName,
+      fname: this.userService.userDetails.firstName,
+      lname: this.userService.userDetails.lastName,
+      aboutYou: this.userService.userDetails.aboutYourself,
+      // profileType: {
+      //   student: 0,
+      //   professional: 1
+      // },
+      // additional: {
+      //   experience: this.userService.userDetails.experience,
+      //   expertise: this.userService.userDetails.experience,
+      //   role: this.userService.userDetails.roleText
+      // }
     });
+
+    let area = <FormArray>this.profileForm.controls.areaInterest;
+    console.log(area);
+    this.userService.areaOfInterest.forEach(areaFill => {
+      area.push(this.fb.array([() => {
+        return this.fb.group({ id: areaFill.id, displayValue: areaFill.displayValue});
+      }]))
+    })
+
+    // console.log(this.profileForm.get('areaOfInterest').controls);
   }
 
+
   onSubmit(){
-    this.initializeForm();
     console.log(this.profileForm);
   }
 

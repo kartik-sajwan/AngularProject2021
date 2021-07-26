@@ -16,7 +16,8 @@
 		</div>
 	</div>
 	<div class="action" >
-		<div class="star"  *ngIf="typeOfCard === 0"> <img src="../../assets/grey_star.svg" alt="wishlist" (click)="courseService.addToWishlist(courseService.courses[index])"> </div>
+		<div class="star"  *ngIf="typeOfCard === 0 && !courseService.isInWishlist(course)"> <img src="../../assets/grey_star.svg" alt="wishlist" (click)="courseService.addToWishlist(courseService.courses[index])"> </div>
+		<div class="star"  *ngIf="typeOfCard === 0 && courseService.isInWishlist(course)"> <img src="../../assets/star_yellow.svg" alt="wishlist" (click)="courseService.removeWishlisted(courseService.courses[index])"> </div>
 		<div class="mobile-price">
 			<div class="move-to-wishlist" *ngIf="typeOfCard === 2" ><button (click)="courseService.moveToWishlist(courseService.inCart[index])"><p>MOVE TO WISHLIST</p></button> </div>
 			<div class="price">Rs  {{ course.price - (course.discount * course.price /100) }} /-</div>

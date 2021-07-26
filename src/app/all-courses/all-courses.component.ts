@@ -8,6 +8,7 @@ import { CourseService } from '../services/course.service';
 })
 export class AllCoursesComponent implements OnInit {
 
+  allCourses: string = 'All Courses';
   pageTitle: string = 'Discover Latest Courses on React';
   courseService: CourseService;
   constructor(courseService: CourseService) { 
