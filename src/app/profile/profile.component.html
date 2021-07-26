@@ -85,42 +85,26 @@
 				<div class="experience">
 					<hr id="line" />
 					<label class="form-label">How much of experience you have?</label>
-					<div class="form-control form-control-radio">
-						<label class="custom-radio">
-							<input type="radio" formControlName="experience" value="1"/>
-							<span class="radiomark"></span>
-							0-5
-						</label>
-						<label class="custom-radio">
-							<input type="radio" formControlName="experience" value="2"/>
-							<span class="radiomark"></span>
-							5-10
-						</label>
-						<label class="custom-radio">
-							<input type="radio" formControlName="experience" value="3"/>
-							<span class="radiomark"></span>
-							10 & Above
-						</label>
+					<div class="exp-radio">
+						<div class="form-control form-control-radio" formArrayName="experienced" *ngFor="let exp of expGet.controls">
+							<label class="custom-radio">
+								<input type="radio" name="experience" [checked]="userService.userDetails.experience === exp.value[0].id"/>
+								<span class="radiomark"></span>
+								{{exp.value[0].displayValue}}
+							</label>
+						</div>
 					</div>
 				</div>
 				<div class="expertise">
 					<label class="form-label">What is your expertise</label>
-					<div class="form-control form-control-radio">
-						<label class="custom-radio">
-							<input type="radio" name="expertise" checked="checked" />
-							<span class="radiomark"></span>
-							Java
-						</label>
-						<label class="custom-radio">
-							<input type="radio" name="expertise" />
-							<span class="radiomark"></span>
-							<span class="label-text">React</span>
-						</label>
-						<label class="custom-radio">
-							<input type="radio" name="expertise" />
-							<span class="radiomark"></span>
-							Backend
-						</label>
+					<div class="exp-radio">
+						<div class="form-control form-control-radio" formArrayName="expertise" *ngFor="let exp of expertGet.controls">
+							<label class="custom-radio">
+								<input type="radio" name="expertise" [checked]="userService.userDetails.expertise === exp.value[0].id" />
+								<span class="radiomark"></span>
+								{{exp.value[0].displayValue}}
+							</label>
+						</div>
 					</div>
 				</div>
 				<div class="form-control form-control-role">
@@ -128,16 +112,17 @@
 					<input
 						type="text"
 						id="role"
+						formControlName="role"
 						placeholder="Enter your role"
 						class="form-input"
 					/>
 				</div>
 			</div>
 
-			<div class="save"><button class="save-btn">SAVE</button></div>
+			<div class="save"><button class="save-btn" [disabled]="!profileForm.valid">SAVE</button></div>
 		</form>
 		<!-- ***Form Ends*** -->
 
-		<button class="save-btn-mobile">SAVE</button>
+		<!-- <button class="save-btn-mobile">SAVE</button> -->
 	</section>
 </main>

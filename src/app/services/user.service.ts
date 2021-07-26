@@ -24,10 +24,10 @@ export class UserService {
      displayName: 's',
      roleText: 's',
      aboutYourself: 's',
-     experience: 's',
+     experience: "1",
      areasOfInterest: ["1"],
      isProfessional: false,
-     expertise: 's',
+     expertise: "1",
      lastName: 's'
    };
 
@@ -50,8 +50,36 @@ export class UserService {
 			"displayValue": "sales"
 		}
 	]; 
-   experience: Array<{id: string, displayValue: string}> =[];
-   expertise: Array<{id:string, displayValue: string}> =[];
+  //  experience: Array<{id: string, displayValue: string}> =[];
+  //  expertise: Array<{id:string, displayValue: string}> =[];
+  experience: Array<{id: string, displayValue: string}> = [
+		{
+			"id": "1",
+			"displayValue": "0-5"
+		},
+		{
+			"id": "2",
+			"displayValue": "5-10"
+		},
+		{
+			"id": "3",
+			"displayValue": "> 10"
+		}
+	];
+  expertise: Array<{id:string, displayValue: string}> = [
+		{
+			"id": "1",
+			"displayValue": "java"
+		},
+		{
+			"id": "2",
+			"displayValue": "react"
+		},
+		{
+			"id": "3",
+			"displayValue": "backend"
+		}
+	]; 
 
   private httpClient: HttpClient;
   constructor(httpClient: HttpClient) { 
