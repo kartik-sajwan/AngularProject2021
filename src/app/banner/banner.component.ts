@@ -10,7 +10,6 @@ export class BannerComponent implements OnInit {
   @Input() pageTitle:string = '';
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

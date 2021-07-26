@@ -1,3 +1,9 @@
+
+<!-- 	todo: find a better solution
+	this template loads course items from various components
+
+	 typeOfCart values =>  allCoursePage = 0,  wishlist = 1,  cart = 2, recommendations = 3 -->
+
 <div class="card" key='${course.id}' *ngIf="typeOfCard === 0 || typeOfCard === 1 || typeOfCard === 2 || typeOfCard === 3">
 	<div class="about" >
 		<div class="prod-img" *ngIf="typeOfCard === 0 || typeOfCard === 1 || typeOfCard === 2 || typeOfCard === 3"></div>

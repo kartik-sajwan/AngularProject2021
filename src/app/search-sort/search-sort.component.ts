@@ -8,7 +8,7 @@ import { CourseService } from '../services/course.service';
 })
 export class SearchSortComponent implements OnInit {
 
-  search: string = "All Courses";
+  allCourses: string = "All Courses";
   courseService: CourseService;
   @Input() pageTitle: string = '';
   @Input() typeOfCard: number = 0;

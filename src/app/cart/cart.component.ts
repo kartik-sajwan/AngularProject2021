@@ -7,6 +7,7 @@ import { CourseService } from '../services/course.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
+
   pageTitle:string = 'Shopping Cart';
   courseService: CourseService;
   constructor(courseService: CourseService) { 

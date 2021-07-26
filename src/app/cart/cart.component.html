@@ -6,16 +6,20 @@
 	<h3>{{ courseService.inCartCount}} Courses in Cart</h3>
 	<div class="show-cart">
 		<div class="cart-wrapper">
+			<p class="cart-placeholder" *ngIf="courseService.inCart.length === 0">Your cart is empty right now. Please add courses in the cart from the list.</p>
+			<!-- This section loads courses in cart -->
 			<section class="in-cart-list" id="in-cart" *ngFor="let course of courseService.inCart; let i = index" >
 				<app-course-item [index] = "i" [typeOfCard]="2" [course]="course"></app-course-item>
 			</section>
 			<div class="wrap">
 				<h4>Recommended Courses</h4>
+				<!-- This section loads courses in wishlist for recommendations -->
 				<section class="recommendation" id="recommend" *ngFor="let course of courseService.inWishlist; let i = index" >
 					<app-course-item [index] = "i" [typeOfCard]="3" [course]="course"></app-course-item>
 				</section>
 			</div>
 		</div>
+		<!-- This section is for the summary of cart and checkout button -->
 		<section class="cart-total">
 			<div class="cart-details">
 				<p>Total Amount</p>
@@ -27,7 +31,7 @@
 				<p>You have saved Rs {{ courseService.totalSavings }}/-</p>
 			</div>
 			<div class="checkout">
-				<button class="checkout-btn" (click)="courseService.placeOrder()">CHECKOUT</button>
+				<button class="checkout-btn" (click)="courseService.placeOrder()" [disabled]="courseService.inCart.length == 0">CHECKOUT</button>
 			</div>
 		</section>
 	</div>
