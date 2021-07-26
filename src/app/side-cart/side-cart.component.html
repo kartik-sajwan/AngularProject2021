@@ -2,6 +2,7 @@
 		<p>YOUR CART DETAILS</p>
 		<hr>
 	</div>
+	<p class="cart-placeholder" *ngIf="courseService.inCart.length === 0">Your cart is empty right now. Please add courses in the cart from the list.</p>
 	<app-side-cart-item *ngFor="let course of courseService.inCart; let i = index" [index] = "i"></app-side-cart-item>
 	<div class="summary">
 		<hr>

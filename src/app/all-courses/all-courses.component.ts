@@ -10,14 +10,12 @@ export class AllCoursesComponent implements OnInit {
 
   allCourses: string = 'All Courses';
   pageTitle: string = 'Discover Latest Courses on React';
+
   courseService: CourseService;
   constructor(courseService: CourseService) { 
     this.courseService = courseService;
   }
 
-  ngOnInit(): void {
-    // setTimeout(() => this.courseService.getCourses(), 1500);
-
-  }
+  ngOnInit(): void { }
 
 }

@@ -54,6 +54,7 @@
 				</div>
 			</div>
 
+			<!-- *** this part of form contains areaOfInterest checkboxex and is loaded from formArray *** -->
 			<div class="form-row form-row-3">
 				<label class="form-label">Your Area of Interest</label>
 				<div class="form-control form-control-check" formArrayName="areaInterest" *ngFor="let area of areaInterested.controls">
@@ -80,7 +81,7 @@
 					</label>
 				</div>
 			</div>
-
+			<!-- *** this part contains experience radio buttons *** -->
 			<div class="form-row form-row-5" *ngIf="profile.value == 1">
 				<div class="experience">
 					<hr id="line" />
@@ -95,6 +96,7 @@
 						</div>
 					</div>
 				</div>
+				<!-- *** this part contains expertise radio buttons *** -->
 				<div class="expertise">
 					<label class="form-label">What is your expertise</label>
 					<div class="exp-radio">
@@ -122,7 +124,5 @@
 			<div class="save"><button class="save-btn" [disabled]="!profileForm.valid">SAVE</button></div>
 		</form>
 		<!-- ***Form Ends*** -->
-
-		<!-- <button class="save-btn-mobile">SAVE</button> -->
 	</section>
 </main>

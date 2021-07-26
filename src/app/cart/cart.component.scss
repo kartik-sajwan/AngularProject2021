@@ -71,12 +71,20 @@ h4{
 	flex-direction: row;
 	align-items: flex-start;
 
+	
 	.cart-wrapper{
 		margin-top: -0.8%;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
 		width: 100%;
+	}
+	.cart-placeholder{
+		text-align: left;
+		font-size: 1.8rem;
+		color: #AAAAAA;
+		padding: 1rem;
+	
 	}
 	.wrap {
 			display: flex;
@@ -129,6 +137,9 @@ h4{
 			background: #FF6738 0% 0% no-repeat padding-box;
 			border: none;
 			border-radius: 0.4rem;
+		}
+		.checkout-btn[disabled]{
+			background: #e0e5f8 0% 0% no-repeat padding-box;
 		}
 	}
 }

@@ -1,144 +1,60 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http'
 import { UserService } from '../services/user.service';
-import { stringify } from '@angular/compiler/src/util';
+
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
+
 export class ProfileComponent implements OnInit {
+//  This component controls profile page
 
   userService: UserService;
-  userDetails: {
-    id: string,
-    firstName: string,
-    displayName: string,
-    roleText: string,
-    aboutYourself: string,
-    experience: string,
-    areasOfInterest: Array<string>,
-    isProfessional: boolean,
-    expertise: string,
-    lastName: string
-   } = {
-     id: 'G8oCAXWM1FZL8xLOlQS3',
-     firstName: '',
-     displayName: '',
-     roleText: '',
-     aboutYourself: '',
-     experience: '',
-     areasOfInterest: [],
-     isProfessional: false,
-     expertise: '',
-     lastName: ''
-   };
-   areaOfInterest: Array<{id:string, displayValue: string}> =[];
-   experience: Array<{id: string, displayValue: string}> =[];
-   expertise: Array<{id:string, displayValue: string}> =[];
-
-  // areaOfInterest: Array<{id:string, displayValue: string}> = [
-	// 	{
-	// 		"id": "1",
-	// 		"displayValue": "designer"
-	// 	},
-	// 	{
-	// 		"id": "2",
-	// 		"displayValue": "developer"
-	// 	},
-	// 	{
-	// 		"id": "3",
-	// 		"displayValue": "manager"
-	// 	},
-	// 	{
-	// 		"id": "4",
-	// 		"displayValue": "sales"
-	// 	}
-	// ]; 
-  // experience: Array<{id: string, displayValue: string}> = [
-	// 	{
-	// 		"id": "1",
-	// 		"displayValue": "0-5"
-	// 	},
-	// 	{
-	// 		"id": "2",
-	// 		"displayValue": "5-10"
-	// 	},
-	// 	{
-	// 		"id": "3",
-	// 		"displayValue": "> 10"
-	// 	}
-	// ];
-  // expertise: Array<{id:string, displayValue: string}> = [
-	// 	{
-	// 		"id": "1",
-	// 		"displayValue": "java"
-	// 	},
-	// 	{
-	// 		"id": "2",
-	// 		"displayValue": "react"
-	// 	},
-	// 	{
-	// 		"id": "3",
-	// 		"displayValue": "backend"
-	// 	}
-	// ]; 
+  areaOfInterest: Array<{id:string, displayValue: string}> =[];
+  experience: Array<{id: string, displayValue: string}> =[];
+  expertise: Array<{id:string, displayValue: string}> =[];
 
   pageTitle:string = "My Profile";
 
-  // profileForm: FormGroup = new FormGroup({});
+
   fb: FormBuilder = new FormBuilder();
-  
+  profileForm: FormGroup = new FormGroup({});
+
   constructor(userService: UserService, fb: FormBuilder) {
     this.userService = userService;
   }
-
-  profileForm: FormGroup =new FormGroup({
-    'dname': new FormControl(null, [Validators.required]),
-    'fname': new FormControl(null, [Validators.required]),
-    'lname': new FormControl(null),
-    'aboutYou': new FormControl(null, [Validators.maxLength(100)]),
-    'areaInterest': this.fb.array([]),
-    'profileType': new FormControl(null),
-    'experienced': new FormArray([]),
-    'expertise': new FormArray([]),
-    'role': new FormControl(null)
-  });
-
+  
   ngOnInit(): void {
-    // setTimeout(() => {
-    //   this.initializeForm();
-    //   console.log(this.profileForm.value);
-    //   console.log(Date.now());
-    // }, 50);
-    // console.log(Date.now());
-    
-    // setTimeout(() => {
-    //   return;
-    // }, 2000);
+
+    //  Defining structure of reactive form
+
+    this.profileForm = new FormGroup({
+      'dname': new FormControl(null, [Validators.required]),
+      'fname': new FormControl(null, [Validators.required]),
+      'lname': new FormControl(null),
+      'aboutYou': new FormControl(null, [Validators.maxLength(100)]),
+      'areaInterest': this.fb.array([]),
+      'profileType': new FormControl(null),
+      'experienced': new FormArray([]),
+      'expertise': new FormArray([]),
+      'role': new FormControl(null)
+    });
+
+    //  Initialize form 
     this.initializeForm();
-    
-    // console.log(this.userService.areaOfInterest);
-  }
-
-  get areaInterested(){
-    return <FormArray>this.profileForm.get('areaInterest');
-  }
-
-  get profile(){
-    return <FormControl>this.profileForm.get('profileType');
-  }
-
-  get expGet(){
-    return <FormArray>this.profileForm.get('experienced');
-  }
-
-  get expertGet(){
-    return <FormArray>this.profileForm.get('expertise');
   }
 
 
+  //  Getter methods for form controls
+  get areaInterested(){    return <FormArray>this.profileForm.get('areaInterest');  }
+  get profile(){    return <FormControl>this.profileForm.get('profileType');  }
+  get expGet(){    return <FormArray>this.profileForm.get('experienced');  }
+  get expertGet(){    return <FormArray>this.profileForm.get('expertise');  }
+
+//  Initialise form function
   initializeForm() {
     this.profileForm.patchValue({
       dname: this.userService.userDetails.displayName,
@@ -149,33 +65,31 @@ export class ProfileComponent implements OnInit {
       role: this.userService.userDetails.roleText
     });
 
-    let area = <FormArray>this.profileForm.controls.areaInterest;
+    //  initialize formArray areaInterest
+    let area = this.areaInterested;
     this.userService.areaOfInterest.forEach(areaFill => {
-      console.log(areaFill);
       area.push(this.fb.array([areaFill]))
     })
-
-    let exp = <FormArray>this.profileForm.controls.experienced;
+    //  initialize formArray experience
+    let exp = this.expGet;
     this.userService.experience.forEach(expFill => {
       exp.push(this.fb.array([expFill]))
     })
-
-    let expert = <FormArray>this.profileForm.controls.expertise;
+    //  initialize formArray expertise
+    let expert = this.expertGet;
     this.userService.expertise.forEach(expFill => {
       expert.push(this.fb.array([expFill]))
     })
-    console.log(expert);
   }
 
-  // onChanges() {
-  //   this.profileForm.get('profileType')?.valueChanges.subscribe(val => {
-  //     console.log(val)
-  //   })
-  // }
-
-
+  //  This function is called on submit form   ***does not store values for checkbox and radio buttons***  !!! Incomplete !!! 
   onSubmit(){
-    console.log(this.profileForm);
+    this.userService.userDetails.displayName = this.profileForm.value.dname;
+    this.userService.userDetails.firstName = this.profileForm.value.fname;
+    this.userService.userDetails.lastName = this.profileForm.value.lname;
+    this.userService.userDetails.aboutYourself = this.profileForm.value.aboutYou;
+    this.userService.userDetails.isProfessional = this.profileForm.value.profileType === 1 ? true : false;
+    this.userService.userDetails.roleText = this.profileForm.value.role;
   }
 
 }
