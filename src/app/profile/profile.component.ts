@@ -24,15 +24,15 @@ export class ProfileComponent implements OnInit {
     lastName: string
    } = {
      id: 'G8oCAXWM1FZL8xLOlQS3',
-     firstName: 'Saurabh',
-     displayName: 'Saurabh',
-     roleText: 'UI developer',
-     aboutYourself: 'I am Iron Man',
-     experience: '1',
-     areasOfInterest: ['1'],
-     isProfessional: true,
-     expertise: '1',
-     lastName: 'Sinha'
+     firstName: '',
+     displayName: '',
+     roleText: '',
+     aboutYourself: '',
+     experience: '',
+     areasOfInterest: [],
+     isProfessional: false,
+     expertise: '',
+     lastName: ''
    };
    areaOfInterest: Array<{id:string, displayValue: string}> =[];
    experience: Array<{id: string, displayValue: string}> =[];
@@ -87,32 +87,26 @@ export class ProfileComponent implements OnInit {
 
   pageTitle:string = "My Profile";
 
-  profileForm: FormGroup = new FormGroup({});
+  // profileForm: FormGroup = new FormGroup({});
   fb: FormBuilder = new FormBuilder();
   
   constructor(userService: UserService, fb: FormBuilder) {
     this.userService = userService;
   }
 
+  profileForm: FormGroup =new FormGroup({
+    'dname': new FormControl(null),
+    'fname': new FormControl(null),
+    'lname': new FormControl(null),
+    'aboutYou': new FormControl(null),
+    'areaInterest': this.fb.array([]),
+    'profileType': new FormControl(null),
+    'experience': new FormControl(null),
+    'expertise': new FormControl(null),
+    'role': new FormControl(null)
+  });
 
   ngOnInit(): void {
-
-    this.profileForm =new FormGroup({
-      'dname': new FormControl(null),
-      'fname': new FormControl(null),
-      'lname': new FormControl(null),
-      'aboutYou': new FormControl(null),
-      'areaInterest': this.fb.array([]),
-      'profileType': new FormGroup({
-        'student': new FormControl(null),
-        'professional': new FormControl(null),
-      }),
-      'additional': new FormGroup({
-        'experience': new FormArray([]),
-        'expertise': new FormArray([]),
-        'role': new FormControl(null)
-      })
-    });
     // setTimeout(() => {
     //   this.initializeForm();
     //   console.log(this.profileForm.value);
@@ -120,9 +114,20 @@ export class ProfileComponent implements OnInit {
     // }, 50);
     // console.log(Date.now());
     
+    // setTimeout(() => {
+    //   return;
+    // }, 2000);
     this.initializeForm();
     
-    console.log(this.userService.areaOfInterest);
+    // console.log(this.userService.areaOfInterest);
+  }
+
+  get areaInterested(){
+    return <FormArray>this.profileForm.get('areaInterest');
+  }
+
+  get profile(){
+    return <FormControl>this.profileForm.get('profileType');
   }
 
   initializeForm() {
@@ -131,26 +136,23 @@ export class ProfileComponent implements OnInit {
       fname: this.userService.userDetails.firstName,
       lname: this.userService.userDetails.lastName,
       aboutYou: this.userService.userDetails.aboutYourself,
-      // profileType: {
-      //   student: 0,
-      //   professional: 1
-      // },
-      // additional: {
-      //   experience: this.userService.userDetails.experience,
-      //   expertise: this.userService.userDetails.experience,
-      //   role: this.userService.userDetails.roleText
-      // }
+      profileType: this.userService.userDetails.isProfessional === true ? "1": "0",
+      experience: this.userService.userDetails.experience,
+      
     });
 
     let area = <FormArray>this.profileForm.controls.areaInterest;
-    console.log(area);
     this.userService.areaOfInterest.forEach(areaFill => {
-      area.push(this.fb.array([() => {
-        return this.fb.group({ id: areaFill.id, displayValue: areaFill.displayValue});
-      }]))
+      area.push(this.fb.array([areaFill]))
     })
 
-    // console.log(this.profileForm.get('areaOfInterest').controls);
+    console.log(this.profile);
+  }
+
+  onChanges() {
+    this.profileForm.get('profileType')?.valueChanges.subscribe(val => {
+      console.log(val)
+    })
   }
 
 

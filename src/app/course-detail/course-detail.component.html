@@ -1,1 +1,66 @@
-<p>course-detail works!</p>
+<main>
+	<app-banner [pageTitle]="pageTitle"></app-banner>
+	<div class="course_">
+        <h3 class="course__title">
+          {{course.title}}
+        </h3>
+        <span class="course__subtitle"
+          >Responsive Design Course XYZ How to design responsive templates</span
+        >
+        <span class="course__author"> Joseph Marie </span>
+        <div class="course__tags">
+          <span class="tag">React</span>
+          <span class="tag">React</span>
+          <span class="tag">React</span>
+        </div>
+      </div>
+      <div class="course__details">
+        <div class="description">
+          <h4 class="description__title">Course Details</h4>
+          <div class="description__details">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </div>
+        </div>
+
+        <div class="actions">
+          <h3 class="price">Rs 563/-</h3>
+          <span class="discount">Rs 923/-</span>
+          <div class="timing">
+            <img src="time-clock.png" width="20" height="20" />
+            <span>8 hours left for this price</span>
+          </div>
+          <div class="actions__buttons">
+            <button class="actions__buttons--cart">ADD TO CART</button>
+            <button class="actions__buttons--wishlist">
+              ADD TO WISHLIST
+              <span><img src="bookmark.png" width="20" height="20" /></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="course-video">
+        <video controls>
+          <source src="" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+</main>

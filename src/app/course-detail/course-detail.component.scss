@@ -1,0 +1,162 @@
+.course {
+	background: #0f1317 0% 0% no-repeat padding-box;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	height: 28.3rem;
+	justify-content: flex-start;
+	padding: 4.6rem 0 4.4rem 15.2rem;
+	position: relative;
+	top: 28.2rem;
+  }
+  
+  .course__title {
+	font: normal normal 600 2.4rem/2.9rem Montserrat;
+	max-width: 79.5rem;
+	letter-spacing: 0;
+	color: #ffffff;
+  }
+  
+  .course__subtitle {
+	font: normal normal 300 1.8rem/2.2rem Montserrat;
+	color: #ffffff;
+	margin-top: 2rem;
+	margin-bottom: 4rem;
+  }
+  
+  .course__author {
+	color: #ff9271;
+	font: normal normal 300 1.6rem/1.9rem Montserrat;
+	margin-bottom: 2rem;
+  }
+  
+  .course__tags {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	max-width: 25rem;
+  }
+  .tag {
+	background: #ededed 0% 0% no-repeat padding-box;
+	color: #080808;
+	border-radius: 0.4rem;
+	width: 7.8rem;
+	height: 2.1rem;
+	text-align: center;
+	font: normal normal 300 1.2rem/1.5rem Montserrat;
+	color: #080808;
+	padding-top: 0.15rem;
+  }
+  
+  .course__details {
+	position: relative;
+	top: 30rem;
+	left: 14rem;
+	opacity: 1;
+	color: #000;
+	display: flex;
+  }
+  
+  .description {
+	margin-right: 0.8rem;
+	background: #ffffff 0% 0% no-repeat padding-box;
+	border: 1px solid #e0e0e0;
+	padding: 2rem 0 4rem 2rem;
+	height: 37.2rem;
+	width: 95rem;
+  }
+  
+  .description__title {
+	text-align: left;
+	font: normal normal 600 1.8rem/2.2rem Montserrat;
+	color: #4e4e4e;
+	margin-bottom: 2rem;
+  }
+  .description__details p {
+	max-width: 70rem;
+	font: normal normal 300 1.8rem/2.2rem Montserrat;
+	color: #000000;
+	margin-bottom: 1.4rem;
+  }
+  
+  .actions {
+	align-self: flex-end;
+	margin-left: 0.8rem;
+	background: #ffffff 0% 0% no-repeat padding-box;
+	border: 1px solid #e0e0e0;
+	opacity: 1;
+	width: 67.4rem;
+	height: 27.7rem;
+	padding: 2.2rem 2rem 4.8rem 2rem;
+	max-width: 67.4rem;
+  }
+  
+  .price {
+	font: normal normal bold 3rem/3.7rem Montserrat;
+	color: #080808;
+  }
+  
+  .discount {
+	text-align: left;
+	text-decoration: line-through;
+	font: normal normal 300 2rem/2.4rem Montserrat;
+	color: #080808;
+  }
+  
+  .timing {
+	margin-top: 1.9rem;
+	margin-bottom: 4.6rem;
+	display: flex;
+	align-items: center;
+	font: normal normal 300 2rem/2.4rem Montserrat;
+	justify-content: flex-start;
+	color: #d13030;
+  }
+  
+  .timing img {
+	margin-right: 1rem;
+  }
+  
+  .actions__buttons {
+	display: flex;
+	justify-content: center;
+  }
+  
+  .actions__buttons button {
+	border-radius: 0.4rem;
+	width: 30.8rem;
+	height: 5.1rem;
+	font-size: 1.6rem;
+  }
+  
+  .actions__buttons--cart {
+	border: 0;
+	background: #ff6738 0% 0% no-repeat padding-box;
+	border: 0;
+	color: #fff;
+	opacity: 1;
+	margin-right: 0.8rem;
+  }
+  
+  .actions__buttons--wishlist {
+	margin-left: 0.8rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }
+  
+  .actions__buttons--wishlist span {
+	margin-left: 2rem;
+  }
+  
+  .course-video {
+	position: relative;
+	left: 110.6rem;
+	bottom: 32rem;
+  }
+  
+  .course-video video {
+	width: 67.4rem;
+	height: 33.2rem;
+  }
+  

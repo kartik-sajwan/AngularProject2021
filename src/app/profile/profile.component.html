@@ -54,65 +54,50 @@
 				</div>
 			</div>
 
-			<!-- <div class="form-row form-row-3">
+			<div class="form-row form-row-3">
 				<label class="form-label">Your Area of Interest</label>
-				<div class="form-control form-control-check" formArrayName="areaOfInterest" *ngFor="let area of profileForm.get('areaOfInterest')['controls']; let i = index;">
-					<label class="custom-check" formGroupName="i">
-						<input type="checkbox" checked="checked" value="1" formControlName="displayValue"/>
-						<span class="checkmark"></span>
-						{{ i }}
-					</label> -->
-					<!-- <label class="custom-check">
-						<input type="checkbox" value="2" />
-						<span class="checkmark"></span>
-						Developer
-					</label>
+				<div class="form-control form-control-check" formArrayName="areaInterest" *ngFor="let area of areaInterested.controls">
 					<label class="custom-check">
-						<input type="checkbox" value="3" />
+						<input type="checkbox" [attr.checked]="userService.userDetails.areasOfInterest.indexOf(area.value[0].id) > -1 ? true : null"/>
 						<span class="checkmark"></span>
-						Project Manager
+						{{ area.value[0].displayValue }}
 					</label>
-					<label class="custom-check">
-						<input type="checkbox" value="4" />
-						<span class="checkmark"></span>
-						Sales
-					</label> -->
-				<!-- </div>
-			</div> -->
+				</div>
+			</div>
 
 			<div class="form-row form-row-4">
-				<label class="form-label">Are you a student or Professional</label>
+				<label class="form-label" >Are you a student or Professional</label>
 				<div class="form-control form-control-level">
 					<label class="custom-radio">
-						<input type="radio" checked="checked" name="radio" value="student"/>
+						<input type="radio" value="0" formControlName="profileType"/>
 						<span class="radiomark" id="student"></span>
 						Student
 					</label>
-					<label class="custom-radio">
-						<input type="radio" name="radio" value="student"/>
+					<label class="custom-radio" >
+						<input type="radio" value="1" formControlName="profileType"/>
 						<span class="radiomark" id="professional"></span>
 						Professional
 					</label>
 				</div>
 			</div>
 
-			<div class="form-row form-row-5" id="hidden-section">
+			<div class="form-row form-row-5" *ngIf="profile.value == 1">
 				<div class="experience">
 					<hr id="line" />
 					<label class="form-label">How much of experience you have?</label>
 					<div class="form-control form-control-radio">
 						<label class="custom-radio">
-							<input type="radio" name="profession" checked="checked" />
+							<input type="radio" formControlName="experience" value="1"/>
 							<span class="radiomark"></span>
 							0-5
 						</label>
 						<label class="custom-radio">
-							<input type="radio" name="profession" />
+							<input type="radio" formControlName="experience" value="2"/>
 							<span class="radiomark"></span>
 							5-10
 						</label>
 						<label class="custom-radio">
-							<input type="radio" name="profession" />
+							<input type="radio" formControlName="experience" value="3"/>
 							<span class="radiomark"></span>
 							10 & Above
 						</label>

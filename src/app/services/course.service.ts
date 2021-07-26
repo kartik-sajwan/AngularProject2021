@@ -64,7 +64,7 @@ export class CourseService {
       else if (course.courseDescription.includes(this.searchTerm)){
         return course;
       }
-      return;
+      return null;
     });
     console.log(this.searchResults);
   }

@@ -20,15 +20,15 @@ export class UserService {
     lastName: string
    } = {
      id: 'G8oCAXWM1FZL8xLOlQS3',
-     firstName: 'Saurabh',
-     displayName: 'Saurabh',
-     roleText: 'UI developer',
-     aboutYourself: 'I am Iron Man',
-     experience: '1',
-     areasOfInterest: ['1'],
-     isProfessional: true,
-     expertise: '1',
-     lastName: 'Sinha'
+     firstName: 's',
+     displayName: 's',
+     roleText: 's',
+     aboutYourself: 's',
+     experience: 's',
+     areasOfInterest: ["1"],
+     isProfessional: false,
+     expertise: 's',
+     lastName: 's'
    };
 
   //  areaOfInterest: Array<{id:string, displayValue: string}> =[];
