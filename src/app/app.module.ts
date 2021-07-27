@@ -28,7 +28,7 @@ const routes = [
   {path: 'wishlist', component: WishlistComponent},
   {path: 'cart', component: CartComponent},
   {path: 'profile', component: ProfileComponent},
-  {path: 'course-detail', component:CourseDetailComponent},
+  {path: 'course-details', component:CourseDetailComponent, pathMatch: 'full'},
   {path: 'search', component: SearchResultsComponent },
   
   {path: '**', component: AllCoursesComponent}
@@ -72,7 +72,11 @@ const routes = [
     AppRoutingModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [CourseService],
+  providers: [
+    CourseService,
+    UserService,
+    HttpClientModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

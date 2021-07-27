@@ -11,7 +11,7 @@
 				"world saving",
 				"avenger"
 			],
-			"title": "Shield training extreme, no mercy"
+			"title": "Shield training extreme"
 		},
 		{
 			"id": "FqPHRq9GVkZyoBUm6RWe",
@@ -29,7 +29,7 @@
 		{
 			"id": "FqPHRq0GVkZyoBUm6RWe",
 			"courseCreator": "Grills",
-			"courseDescription": "ain't it wild",
+			"courseDescription": "Lets train a giraffe",
 			"discount": 3,
 			"discountValidTill": "2021-07-30T04:30:00.000Z",
 			"price": 20000,
@@ -50,12 +50,12 @@
 				"dog lover",
 				"baking"
 			],
-			"title": "How to launch"
+			"title": "How to launch a rocket"
 		},
 		{
 			"id": "FqPHRq2GVkZyoBUm6RWe",
 			"courseCreator": "randomGuy",
-			"courseDescription": "The RIGHT way to mow your lawn",
+			"courseDescription": "do Wash, rinse, repeat while(water);",
 			"discount": 16,
 			"discountValidTill": "2021-07-30T04:30:00.000Z",
 			"price": 7000,
@@ -63,12 +63,12 @@
 				"lawn mowing",
 				"safety first"
 			],
-			"title": "The RIGHT way"
+			"title": "The RIGHT way to do laundry"
 		},
 		{
 			"id": "FqPHRq3GVkZyoBUm6RWe",
 			"courseCreator": "iam37",
-			"courseDescription": "in a Church",
+			"courseDescription": "This course delivers best golf techniques",
 			"discount": 13,
 			"discountValidTill": "2021-07-30T04:30:00.000Z",
 			"price": 4000,
@@ -76,7 +76,7 @@
 				"church",
 				"Priest"
 			],
-			"title": "How to confess "
+			"title": "How to golf"
 		},
 		{
 			"id": "FqPHRq4GVkZyoBUm6RWe",
@@ -89,7 +89,7 @@
 				"butchering",
 				"skinning"
 			],
-			"title": "How to skin"
+			"title": "How to skin a goat"
 		},
 		{
 			"id": "FqPHRq5GVkZyoBUm6RWe",
@@ -102,7 +102,7 @@
 				"sigmaMale",
 				"sigmaMale"
 			],
-			"title": "Sigma Male Grindset"
+			"title": "Personality development and self help course"
 		}
 	]
 }

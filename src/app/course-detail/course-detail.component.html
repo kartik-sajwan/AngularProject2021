@@ -1,17 +1,16 @@
-<main>
+<main *ngIf="course">
 	<app-banner [pageTitle]="pageTitle"></app-banner>
-	<div class="course">
+	<div class="course" >
         <h3 class="course__title">
           {{course.title}}
         </h3>
         <span class="course__subtitle"
-          >Responsive Design Course XYZ How to design responsive templates</span
+          >{{ course.courseDescription }}</span
         >
-        <span class="course__author"> Joseph Marie </span>
+        <span class="course__author"> {{course.courseCreator}} </span>
         <div class="course__tags">
-          <span class="tag">React</span>
-          <span class="tag">React</span>
-          <span class="tag">React</span>
+          <span class="tag">{{ course.tags[0] }}</span>
+          <span class="tag">{{ course.tags[1] }}</span>
         </div>
       </div>
       <div class="course__details">
@@ -42,25 +41,22 @@
         </div>
 
         <div class="actions">
-          <h3 class="price">Rs 563/-</h3>
-          <span class="discount">Rs 923/-</span>
+          <h3 class="price">Rs {{(course.price - (course.discount * course.price / 100))}}/-</h3>
+          <span class="discount">Rs {{course.price}}/-</span>
           <div class="timing">
-            <img src="time-clock.png" width="20" height="20" />
-            <span>8 hours left for this price</span>
+           
+            <!-- !!!  Incomplete  !!! Time should be taken from course instance -->
+            <span> 8 hours left for this price</span>
           </div>
           <div class="actions__buttons">
-            <button class="actions__buttons--cart">ADD TO CART</button>
-            <button class="actions__buttons--wishlist">
+            <button class="actions__buttons--cart" (click)="courseService.addToCart(course)">ADD TO CART</button>
+            <button class="actions__buttons--wishlist" (click)="courseService.addToWishlist(course)">
               ADD TO WISHLIST
-              <span><img src="bookmark.png" width="20" height="20" /></span>
+              
             </button>
           </div>
         </div>
       </div>
       <div class="course-video">
-        <video controls>
-          <source src="" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/UbOeVHG5pP8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>      </div>
 </main>

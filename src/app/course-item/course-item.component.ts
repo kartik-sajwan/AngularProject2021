@@ -1,5 +1,6 @@
 import { Component, Input, NgModule, NO_ERRORS_SCHEMA, OnInit, ViewContainerRef, ComponentFactoryResolver} from '@angular/core';
 import { courses, CourseService } from '../services/course.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-course-item',
@@ -25,11 +26,14 @@ export class CourseItemComponent implements OnInit {
   courseService: CourseService;
 
   constructor(
-    private viewcontref: ViewContainerRef,
-    private compfactresol: ComponentFactoryResolver,
+    private router : Router,
     courseService: CourseService
   ) {this.courseService = courseService;}
 
   ngOnInit(): void {
+  }
+
+  loadCourseDetails() {
+    this.router.navigateByUrl('/course-details', {state: this.course});
   }
 }
