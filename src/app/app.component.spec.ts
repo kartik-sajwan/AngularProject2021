@@ -22,9 +22,9 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'HUAngularProject2021'`, () => {
+  it(`should have as title 'AngularProject2021'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('HUAngularProject2021');
+    expect(app.title).toEqual('AngularProject2021');
   });
 });
