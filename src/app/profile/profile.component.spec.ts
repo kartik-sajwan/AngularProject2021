@@ -19,10 +19,32 @@ describe('ProfileComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ProfileComponent);
     component = fixture.componentInstance;
+    component.ngOnInit();
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  //  Custom tests performed on profileForm
+  fit('form invalid when dname empty', () => {
+    let name = component.profileForm.controls['dname'];
+    expect(name.valid).toBeFalsy();
+  });
+
+  fit('form invalid when aboutYou greater than 100 chars', () => {
+    let about = component.profileForm.controls['aboutYou'];
+    about.setValue("iamironmaniamironmaniamironmaniamironmaniamironmaniamironmaniamironmaniamironmaniamironmaniamironmaniamironmaniamironmaniamironman")
+    expect(about.valid).toBeFalsy();
+  });
+
+  fit('form invalid when fname empty', () => {
+    let fname = component.profileForm.controls['fname'];
+    fname.setValue("")
+    expect(fname.valid).toBeFalsy();
+  });
+
+
 });
