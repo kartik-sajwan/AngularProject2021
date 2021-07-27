@@ -1,4 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { courses, CourseService } from '../services/course.service';
+import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-course-detail',
@@ -7,8 +9,8 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class CourseDetailComponent implements OnInit {
 
-  course: {id:string, courseCreator: string, courseDescription: string, discount: number, discountValidTill: Date, price: number, tags: Array<string>, title:string}
-  = {
+  course: courses =
+  {
     id : '',
     courseCreator : '',
     courseDescription :'',
@@ -18,10 +20,16 @@ export class CourseDetailComponent implements OnInit {
     tags : [''],
     title : ''
   };
+
   pageTitle: string = 'Discover Latest Courses on React';
-  constructor() { }
+  courseService: CourseService;
+
+  constructor(private router:Router, private activatedRoute:ActivatedRoute, courseService: CourseService) {
+    this.courseService = courseService;
+  }
 
   ngOnInit(): void {
+    this.course = history.state;
   }
 
 }

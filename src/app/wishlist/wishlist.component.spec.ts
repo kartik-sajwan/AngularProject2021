@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing";
+import { RouterTestingModule } from '@angular/router/testing';
 import { WishlistComponent } from './wishlist.component';
 
 describe('WishlistComponent', () => {
@@ -8,7 +9,8 @@ describe('WishlistComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WishlistComponent ]
+      declarations: [ WishlistComponent ],
+      imports: [HttpClientTestingModule, RouterTestingModule]
     })
     .compileComponents();
   });

@@ -8,7 +8,8 @@
 	justify-content: flex-start;
 	padding: 4.6rem 0 4.4rem 15.2rem;
 	position: relative;
-	top: 28.2rem;
+	top:28.2rem;
+	margin: 0% -8%;
   }
   
   .course__title {
@@ -141,9 +142,12 @@
   
   .actions__buttons--wishlist {
 	margin-left: 0.8rem;
+	background: #ffffff 0% 0% no-repeat padding-box;
+	color: #ff6738;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	border: 0.1rem solid #ff6738;
   }
   
   .actions__buttons--wishlist span {
@@ -154,10 +158,6 @@
 	position: relative;
 	left: 95rem;
 	bottom: 40rem;
-  }
-  
-  .course-video video {
-	width: 68.75rem;
-	height: 33.2rem;
+	width: 100%;
   }
   

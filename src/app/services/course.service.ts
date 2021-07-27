@@ -85,7 +85,6 @@ export class CourseService {
       }
       return null;
     });
-    console.log(this.searchResults);
   }
 
   //  Function to add courses to cart
