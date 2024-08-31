@@ -56,6 +56,14 @@ ng serve
 
 This will start the development server. Open your browser and navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
+## Troubleshoot
+
+```bash
+npm i -D postcss@latest
+```
+```bash
+export NODE_OPTIONS=--openssl-legacy-provider
+```
 ## Build
 
 To build the project for production, run:
