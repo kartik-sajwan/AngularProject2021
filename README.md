@@ -212,19 +212,19 @@ This page should allow the user to enter his/her basic details
 
 >- Profile Image on the left side.
 >- User details should have
-- Display name (Mandatory Field)
-- First name (Mandatory Field)
-- Last name
-- About yourself (Max char 100)
-- Your area of interest (user can select multiple options)
-- Are you a student or a professional?
-- If professional, then - Experience
-- 0-5
-- 5-10
-- 10 & above
-- Expertise
-- Backend
-- Frontend - Mention your role (Max char 200)
+>- Display name (Mandatory Field)
+>- First name (Mandatory Field)
+>- Last name
+>- About yourself (Max char 100)
+>- Your area of interest (user can select multiple options)
+>- Are you a student or a professional?
+>- If professional, then - Experience
+>- 0-5
+>- 5-10
+>- 10 & above
+>- Expertise
+>- Backend
+>- Frontend - Mention your role (Max char 200)
 Add appropriate validations to each of the fields.Save Button should be disabled when any of the validations fail. On click of save, show a popup that says Your profile is updated.
 
 
